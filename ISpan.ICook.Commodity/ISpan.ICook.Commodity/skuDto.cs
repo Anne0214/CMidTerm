@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ISpan.ICook.Commodity
 {
-	internal class skuDto
+	public class skuDto
 	{
-	}
+        public string sku { get; set; }
+        public string typeName { get; set; }
+        public int stockNumber { get; set; }
+    }
 }

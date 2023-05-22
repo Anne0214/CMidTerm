@@ -50,14 +50,16 @@ namespace ISpan.ICook.Commodity
 		[Required(ErrorMessage = "{0}必填")]
 		public int salePrice { get; set; }
 
-		//[Display(Name = "庫存數量")]
-		//public int stockNumber { get; set; }
+		[Display(Name = "庫存數量")]
+		public int stockNumber { get; set; }
 
 		[Display(Name = "售出數量")]
+		[Required(ErrorMessage = "{0}必填")]
 		public int soldNumber { get; set; }
 
 		[Display(Name = "簡短說明")]
 		[Required(ErrorMessage = "{0}必填")]
+		[MaxLength(200,ErrorMessage ="{0}長度需在200以下")]
 		public string ProductDescription { get; set; }
 
 		[Display(Name = "完整說明")]

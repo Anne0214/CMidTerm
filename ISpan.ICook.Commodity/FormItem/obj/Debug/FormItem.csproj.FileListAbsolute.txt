@@ -1,0 +1,8 @@
+C:\CMidTerm\ISpan.ICook.Commodity\FormItem\bin\Debug\FormItem.dll
+C:\CMidTerm\ISpan.ICook.Commodity\FormItem\bin\Debug\FormItem.pdb
+C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.csproj.AssemblyReference.cache
+C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.Toast.resources
+C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.csproj.GenerateResource.cache
+C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.csproj.CoreCompileInputs.cache
+C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.dll
+C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.pdb
