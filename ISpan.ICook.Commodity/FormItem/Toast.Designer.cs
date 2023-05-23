@@ -28,32 +28,44 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.toastBackground = new System.Windows.Forms.Button();
-			this.SuspendLayout();
-			// 
-			// toastBackground
-			// 
-			this.toastBackground.Enabled = false;
-			this.toastBackground.Location = new System.Drawing.Point(2, 3);
-			this.toastBackground.Name = "toastBackground";
-			this.toastBackground.Size = new System.Drawing.Size(75, 23);
-			this.toastBackground.TabIndex = 0;
-			this.toastBackground.Text = "button1";
-			this.toastBackground.UseVisualStyleBackColor = true;
-			// 
-			// Toast
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.toastBackground);
-			this.Name = "Toast";
-			this.Size = new System.Drawing.Size(80, 29);
-			this.ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.labToast = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // labToast
+            // 
+            this.labToast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(81)))), ((int)(((byte)(123)))));
+            this.labToast.Font = new System.Drawing.Font("微軟正黑體", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labToast.ForeColor = System.Drawing.Color.White;
+            this.labToast.Location = new System.Drawing.Point(3, 0);
+            this.labToast.MinimumSize = new System.Drawing.Size(300, 80);
+            this.labToast.Name = "labToast";
+            this.labToast.Size = new System.Drawing.Size(300, 80);
+            this.labToast.TabIndex = 0;
+            this.labToast.Text = "label1";
+            this.labToast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 20;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // Toast
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labToast);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "Toast";
+            this.Size = new System.Drawing.Size(305, 82);
+            this.ResumeLayout(false);
 
 		}
 
-		#endregion
+        #endregion
 
-		private System.Windows.Forms.Button toastBackground;
-	}
+        private System.Windows.Forms.Label labToast;
+        private System.Windows.Forms.Timer timer1;
+    }
 }

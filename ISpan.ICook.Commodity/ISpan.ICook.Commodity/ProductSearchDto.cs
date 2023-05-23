@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 namespace ISpan.ICook.Commodity
 {
 	public class ProductSearchDto
-	{
-        public string spu { get; set; }
-        public string productName { get; set; }
-        public string onShelf { get; set; }
-        public int salePrice { get; set; }
-        public string category { get; set; }
-        public string skuList { get; set; }
-        public int stockNumber { get; set; }
+	{ //從資料庫拿的資料，用於查詢介面
+        public string Spu { get; set; }
+        public string ProductName { get; set; }
+        public int OnShelf { get; set; }
+        public int SalePrice { get; set; }
+        public string Category { get; set; }
+        public List<string> SkuList { get; set; }
+        public int StockNumber { get; set; } //從sku資料算的庫存數
+        public int SoldNumber { get; set; }//從sku資料算的售出數
+
 
     }
 }

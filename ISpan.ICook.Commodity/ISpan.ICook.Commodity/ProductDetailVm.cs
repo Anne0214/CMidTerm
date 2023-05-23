@@ -10,52 +10,44 @@ namespace ISpan.ICook.Commodity
 	public class ProductDetailVm
 	{
 
-		//todo 商品圖還沒在資料庫
 		 
 		[Display(Name ="首圖")]
 		[Required(ErrorMessage ="{0}必填")]
-		public string cover { get; set; }
+		public string Cover { get; set; }
 
 		[Display(Name = "商品分類")]
 		[Required(ErrorMessage = "{0}必填")]
-		public string category { get; set; }
+		public string Category { get; set; }
 
 		[Display(Name = "SPU")]
-		public string spu { get; set; }
+		public string Spu { get; set; }
 
 		[Display(Name = "商品名稱")]
 		[Required(ErrorMessage = "{0}必填")]
 		[MaxLength(20,ErrorMessage ="字數需在20字內")]
-		public string productName { get; set; }
+		public string ProductName { get; set; }
 
 
 		//0:待上架,1:上架中,2:封存
 		[Display(Name = "上架狀態")]
 		[Required(ErrorMessage = "{0}必填")]
-		public string onShelf { get; set; }
+		public int OnShelf { get; set; }
 
 		[Display(Name = "商品規格")]
 		[Required(ErrorMessage = "{0}必填")]
-		public List<skuDto> skuList { get; set; }
+		public List<skuDto> SkuList { get; set; }
 
 		[Display(Name = "採購價")]
 		[Required(ErrorMessage = "{0}必填")]
-		public int purchasePrice { get; set; }
+		public int PurchasePrice { get; set; }
 
 		[Display(Name = "吊牌價")]
 		[Required(ErrorMessage = "{0}必填")]
-		public int tagPrice { get; set; }
+		public int TagPrice { get; set; }
 
 		[Display(Name = "銷售價")]
 		[Required(ErrorMessage = "{0}必填")]
-		public int salePrice { get; set; }
-
-		[Display(Name = "庫存數量")]
-		public int stockNumber { get; set; }
-
-		[Display(Name = "售出數量")]
-		[Required(ErrorMessage = "{0}必填")]
-		public int soldNumber { get; set; }
+		public int SalePrice { get; set; }
 
 		[Display(Name = "簡短說明")]
 		[Required(ErrorMessage = "{0}必填")]
@@ -64,6 +56,6 @@ namespace ISpan.ICook.Commodity
 
 		[Display(Name = "完整說明")]
 		[Required(ErrorMessage = "{0}必填")]
-		public string fullProductDescription { get; set; }
+		public string FullProductDescription { get; set; }
 	}
 }

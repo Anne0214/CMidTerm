@@ -8,8 +8,10 @@ namespace ISpan.ICook.Commodity
 {
 	public class skuDto
 	{
-        public string sku { get; set; }
-        public string typeName { get; set; }
-        public int stockNumber { get; set; }
+        public string Sku { get; set; }
+        public string TypeName { get; set; }
+        public int StockNumber { get; set; }
+
+        public int SoldNumber { get; set; }
     }
 }

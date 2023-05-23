@@ -8,3 +8,17 @@ C:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Pr
 C:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Product.csproj.CoreCompileInputs.cache
 C:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Commodity.exe
 C:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Commodity.pdb
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\bin\Debug\ISpan.ICook.Commodity.exe.config
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\bin\Debug\ISpan.ICook.Commodity.exe
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\bin\Debug\ISpan.ICook.Commodity.pdb
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\bin\Debug\FormItem.dll
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\bin\Debug\FormItem.pdb
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Product.csproj.AssemblyReference.cache
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Product.csproj.SuggestedBindingRedirects.cache
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Commodity.Form1.resources
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Commodity.Properties.Resources.resources
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Product.csproj.GenerateResource.cache
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Product.csproj.CoreCompileInputs.cache
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Product.csproj.CopyComplete
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Commodity.exe
+D:\CMidTerm\ISpan.ICook.Commodity\ISpan.ICook.Commodity\obj\Debug\ISpan.ICook.Commodity.pdb

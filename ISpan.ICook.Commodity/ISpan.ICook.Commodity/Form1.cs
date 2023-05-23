@@ -16,5 +16,10 @@ namespace ISpan.ICook.Commodity
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			toast1.ShowUp();
+        }
+    }
 }

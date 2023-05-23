@@ -6,3 +6,11 @@ C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.csproj.GenerateRes
 C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.csproj.CoreCompileInputs.cache
 C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.dll
 C:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.pdb
+D:\CMidTerm\ISpan.ICook.Commodity\FormItem\bin\Debug\FormItem.dll
+D:\CMidTerm\ISpan.ICook.Commodity\FormItem\bin\Debug\FormItem.pdb
+D:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.csproj.AssemblyReference.cache
+D:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.Toast.resources
+D:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.csproj.GenerateResource.cache
+D:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.csproj.CoreCompileInputs.cache
+D:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.dll
+D:\CMidTerm\ISpan.ICook.Commodity\FormItem\obj\Debug\FormItem.pdb

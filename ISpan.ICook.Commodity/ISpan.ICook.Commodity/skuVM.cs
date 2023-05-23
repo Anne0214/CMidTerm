@@ -10,15 +10,17 @@ namespace ISpan.ICook.Commodity
 	public class skuVM
 	{
 		[Display(Name = "sku")]
-		[Required(ErrorMessage = "{0}為必填")]
-		public string sku { get; set; }
+		public string Sku { get; set; }
 
 		[Display(Name = "型號名稱")]
 		[Required(ErrorMessage ="{0}為必填")]
-		public string typeName { get; set; }
+		public string TypeName { get; set; }
 
 		[Display(Name ="庫存數量")]
 		[Required(ErrorMessage = "{0}為必填")]
-		public int stockNumber { get; set; }
+		public int StockNumber { get; set; }
+
+        [Display(Name = "售出數量")]
+        public int SoldNumber { get; set; }
 	}
 }
