@@ -1,0 +1,8 @@
+D:\CMidTerm\ISpan.ICook.Commodity\ConsoleForTest\bin\Debug\ConsoleForTest.exe.config
+D:\CMidTerm\ISpan.ICook.Commodity\ConsoleForTest\bin\Debug\ConsoleForTest.exe
+D:\CMidTerm\ISpan.ICook.Commodity\ConsoleForTest\bin\Debug\ConsoleForTest.pdb
+D:\CMidTerm\ISpan.ICook.Commodity\ConsoleForTest\obj\Debug\ConsoleForTest.csproj.AssemblyReference.cache
+D:\CMidTerm\ISpan.ICook.Commodity\ConsoleForTest\obj\Debug\ConsoleForTest.csproj.SuggestedBindingRedirects.cache
+D:\CMidTerm\ISpan.ICook.Commodity\ConsoleForTest\obj\Debug\ConsoleForTest.csproj.CoreCompileInputs.cache
+D:\CMidTerm\ISpan.ICook.Commodity\ConsoleForTest\obj\Debug\ConsoleForTest.exe
+D:\CMidTerm\ISpan.ICook.Commodity\ConsoleForTest\obj\Debug\ConsoleForTest.pdb

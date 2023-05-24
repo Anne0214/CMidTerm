@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISpan.ICook.Product", "ISpa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormItem", "FormItem\FormItem.csproj", "{64C5C968-8F32-4ACB-9180-D437D4D462BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdFakeDataMaker", "AdFakeDataMaker\AdFakeDataMaker.csproj", "{1E710E65-95F3-4DB0-B437-E98CBBA441B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleForTest", "ConsoleForTest\ConsoleForTest.csproj", "{84C7A9B9-6BFC-40D1-8ECA-1495B4686AAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{64C5C968-8F32-4ACB-9180-D437D4D462BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64C5C968-8F32-4ACB-9180-D437D4D462BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64C5C968-8F32-4ACB-9180-D437D4D462BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E710E65-95F3-4DB0-B437-E98CBBA441B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E710E65-95F3-4DB0-B437-E98CBBA441B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E710E65-95F3-4DB0-B437-E98CBBA441B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E710E65-95F3-4DB0-B437-E98CBBA441B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C7A9B9-6BFC-40D1-8ECA-1495B4686AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C7A9B9-6BFC-40D1-8ECA-1495B4686AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C7A9B9-6BFC-40D1-8ECA-1495B4686AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C7A9B9-6BFC-40D1-8ECA-1495B4686AAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
