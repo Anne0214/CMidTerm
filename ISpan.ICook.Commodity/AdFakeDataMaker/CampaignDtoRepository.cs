@@ -11,7 +11,7 @@ namespace AdFakeDataMaker
 {
     internal class CampaignDtoRepository
     {
-        public int Create(CampaignDto dto)
+        public void Create(CampaignDto dto)
         {
             Func<SqlConnection> conn = SqlDb.GetConnection;
             string sql = @"Insert [CAMPAIGN_廣告活動]
@@ -22,11 +22,11 @@ namespace AdFakeDataMaker
                                     .AddNVarchar("@url", 100, dto.URL)
                                     .AddNVarchar("@ad_img", 100, dto.AdImg)
                                     .AddInt("@ad_space", dto.AdSpacePk)
-                                    .AddDateTime("@start_time", dto.StartTime)
+                                    .AddDateTime("@start_time", dto.StartTime) 
                                     .AddDateTime("@end_time", dto.EndTime)
                                     .Build();
 
-            return SqlDb.Create(conn, sql, sp);
+            SqlDb2.CreateNoIdentityData(conn,sql,sp) ; 
         }
         public List<CampaignDto> BuildFakeData()
         {
@@ -105,7 +105,7 @@ namespace AdFakeDataMaker
             
             List<CampaignDto> fakeData = new List<CampaignDto>();
             Random rand = new Random(Guid.NewGuid().GetHashCode());
-
+           
 
 
             //用for迴圈產生dto
@@ -117,11 +117,11 @@ namespace AdFakeDataMaker
                     var data = AllNameAndDate.Select(x => new CampaignDto()
                     {
                         CampaignName = x.CName,
-                        CampaignPk = "C"+rand.Next(100001,999999).ToString(),
+                        CampaignPk = "1",
                         AdImg = "https://i.imgur.com/tnlH7su.jpg",
                         AdSpacePk = i,
-                        StartTime = x.S_Time.AddYears(g).ToString(),
-                        EndTime = x.E_Time.AddYears(g).ToString(),
+                        StartTime = x.S_Time.AddYears(g),
+                        EndTime = x.E_Time.AddYears(g),
                         URL = "https://google.com",
                     });
                     fakeData.AddRange(data);
@@ -139,6 +139,7 @@ namespace AdFakeDataMaker
             public DateTime E_Time { get; set; }
 
         }
+
 
     }
 }

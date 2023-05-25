@@ -11,3 +11,16 @@ D:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.cspr
 D:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.csproj.CopyComplete
 D:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.exe
 D:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.pdb
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\bin\Debug\AdFakeDataMaker.exe.config
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\bin\Debug\AdFakeDataMaker.exe
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\bin\Debug\AdFakeDataMaker.pdb
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\bin\Debug\ISpan2023.EStore.SqlDataLayer.dll
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.csproj.AssemblyReference.cache
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.csproj.SuggestedBindingRedirects.cache
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.FormMain.resources
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.Properties.Resources.resources
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.csproj.GenerateResource.cache
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.csproj.CoreCompileInputs.cache
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.csproj.CopyComplete
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.exe
+C:\CMidTerm\ISpan.ICook.Commodity\AdFakeDataMaker\obj\Debug\AdFakeDataMaker.pdb

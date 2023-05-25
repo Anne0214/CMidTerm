@@ -28,116 +28,138 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnShowCampaign = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnShowImpression = new System.Windows.Forms.Button();
-            this.btnShowClick = new System.Windows.Forms.Button();
-            this.btnDb = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // btnShowCampaign
-            // 
-            this.btnShowCampaign.Location = new System.Drawing.Point(52, 52);
-            this.btnShowCampaign.Name = "btnShowCampaign";
-            this.btnShowCampaign.Size = new System.Drawing.Size(117, 23);
-            this.btnShowCampaign.TabIndex = 0;
-            this.btnShowCampaign.Text = "廣告活動";
-            this.btnShowCampaign.UseVisualStyleBackColor = true;
-            this.btnShowCampaign.Click += new System.EventHandler(this.btnShowCampaign_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(190, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(1029, 386);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // btnShowImpression
-            // 
-            this.btnShowImpression.Location = new System.Drawing.Point(52, 105);
-            this.btnShowImpression.Name = "btnShowImpression";
-            this.btnShowImpression.Size = new System.Drawing.Size(117, 23);
-            this.btnShowImpression.TabIndex = 0;
-            this.btnShowImpression.Text = "曝光";
-            this.btnShowImpression.UseVisualStyleBackColor = true;
-            this.btnShowImpression.Click += new System.EventHandler(this.btnShowImpression_Click);
-            // 
-            // btnShowClick
-            // 
-            this.btnShowClick.Location = new System.Drawing.Point(52, 160);
-            this.btnShowClick.Name = "btnShowClick";
-            this.btnShowClick.Size = new System.Drawing.Size(117, 23);
-            this.btnShowClick.TabIndex = 0;
-            this.btnShowClick.Text = "點擊";
-            this.btnShowClick.UseVisualStyleBackColor = true;
-            this.btnShowClick.Click += new System.EventHandler(this.btnShowClick_Click);
-            // 
-            // btnDb
-            // 
-            this.btnDb.Location = new System.Drawing.Point(1144, 432);
-            this.btnDb.Name = "btnDb";
-            this.btnDb.Size = new System.Drawing.Size(75, 23);
-            this.btnDb.TabIndex = 0;
-            this.btnDb.Text = "寫進資料庫";
-            this.btnDb.UseVisualStyleBackColor = true;
-            this.btnDb.Click += new System.EventHandler(this.btnDb_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "AdSpacePk";
-            this.Column1.HeaderText = "版位";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "IP";
-            this.Column2.HeaderText = "IP";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Time";
-            this.Column3.HeaderText = "時間";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 300;
-            // 
-            // FormMain
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1267, 487);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnDb);
-            this.Controls.Add(this.btnShowClick);
-            this.Controls.Add(this.btnShowImpression);
-            this.Controls.Add(this.btnShowCampaign);
-            this.Name = "FormMain";
-            this.Text = "FormMain";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
+			this.btnShowCampaign = new System.Windows.Forms.Button();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.btnShowImpression = new System.Windows.Forms.Button();
+			this.btnShowClick = new System.Windows.Forms.Button();
+			this.btnDb = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.dataGridView2 = new System.Windows.Forms.DataGridView();
+			this.dataGridView3 = new System.Windows.Forms.DataGridView();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// btnShowCampaign
+			// 
+			this.btnShowCampaign.Location = new System.Drawing.Point(35, 21);
+			this.btnShowCampaign.Margin = new System.Windows.Forms.Padding(2);
+			this.btnShowCampaign.Name = "btnShowCampaign";
+			this.btnShowCampaign.Size = new System.Drawing.Size(78, 29);
+			this.btnShowCampaign.TabIndex = 0;
+			this.btnShowCampaign.Text = "廣告活動";
+			this.btnShowCampaign.UseVisualStyleBackColor = true;
+			this.btnShowCampaign.Click += new System.EventHandler(this.btnShowCampaign_Click);
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Location = new System.Drawing.Point(145, 21);
+			this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.RowHeadersWidth = 62;
+			this.dataGridView1.RowTemplate.Height = 31;
+			this.dataGridView1.Size = new System.Drawing.Size(686, 216);
+			this.dataGridView1.TabIndex = 1;
+			// 
+			// btnShowImpression
+			// 
+			this.btnShowImpression.Location = new System.Drawing.Point(35, 271);
+			this.btnShowImpression.Margin = new System.Windows.Forms.Padding(2);
+			this.btnShowImpression.Name = "btnShowImpression";
+			this.btnShowImpression.Size = new System.Drawing.Size(78, 30);
+			this.btnShowImpression.TabIndex = 0;
+			this.btnShowImpression.Text = "曝光";
+			this.btnShowImpression.UseVisualStyleBackColor = true;
+			this.btnShowImpression.Click += new System.EventHandler(this.btnShowImpression_Click);
+			// 
+			// btnShowClick
+			// 
+			this.btnShowClick.Location = new System.Drawing.Point(35, 516);
+			this.btnShowClick.Margin = new System.Windows.Forms.Padding(2);
+			this.btnShowClick.Name = "btnShowClick";
+			this.btnShowClick.Size = new System.Drawing.Size(78, 27);
+			this.btnShowClick.TabIndex = 0;
+			this.btnShowClick.Text = "點擊";
+			this.btnShowClick.UseVisualStyleBackColor = true;
+			this.btnShowClick.Click += new System.EventHandler(this.btnShowClick_Click);
+			// 
+			// btnDb
+			// 
+			this.btnDb.Location = new System.Drawing.Point(696, 252);
+			this.btnDb.Margin = new System.Windows.Forms.Padding(2);
+			this.btnDb.Name = "btnDb";
+			this.btnDb.Size = new System.Drawing.Size(135, 26);
+			this.btnDb.TabIndex = 0;
+			this.btnDb.Text = "廣告活動寫進資料庫";
+			this.btnDb.UseVisualStyleBackColor = true;
+			this.btnDb.Click += new System.EventHandler(this.btnDb_Click);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(616, 439);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(215, 26);
+			this.button1.TabIndex = 2;
+			this.button1.Text = "曝光Log寫進資料庫";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(616, 670);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(215, 26);
+			this.button2.TabIndex = 3;
+			this.button2.Text = "點擊Log寫進資料庫";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// dataGridView2
+			// 
+			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView2.Location = new System.Drawing.Point(145, 283);
+			this.dataGridView2.Name = "dataGridView2";
+			this.dataGridView2.RowTemplate.Height = 24;
+			this.dataGridView2.Size = new System.Drawing.Size(686, 150);
+			this.dataGridView2.TabIndex = 4;
+			// 
+			// dataGridView3
+			// 
+			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView3.Location = new System.Drawing.Point(145, 500);
+			this.dataGridView3.Name = "dataGridView3";
+			this.dataGridView3.RowTemplate.Height = 24;
+			this.dataGridView3.Size = new System.Drawing.Size(686, 150);
+			this.dataGridView3.TabIndex = 5;
+			// 
+			// FormMain
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1204, 708);
+			this.Controls.Add(this.dataGridView3);
+			this.Controls.Add(this.dataGridView2);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.btnDb);
+			this.Controls.Add(this.btnShowClick);
+			this.Controls.Add(this.btnShowImpression);
+			this.Controls.Add(this.btnShowCampaign);
+			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Name = "FormMain";
+			this.Text = "FormMain";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+			this.ResumeLayout(false);
 
         }
 
@@ -148,9 +170,10 @@
         private System.Windows.Forms.Button btnShowImpression;
         private System.Windows.Forms.Button btnShowClick;
         private System.Windows.Forms.Button btnDb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-    }
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.DataGridView dataGridView2;
+		private System.Windows.Forms.DataGridView dataGridView3;
+	}
 }
 

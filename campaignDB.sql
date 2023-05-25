@@ -14,7 +14,7 @@ Create Table [dbo].[AD_SPACE_CLICK_LOG_廣告版面點擊紀錄] --跟[AD_SPACE_IMPRESSIO
 	)
 
 Create Table [dbo].[AD_SPACE_廣告版面] --紀錄網站上有的廣告板面，一個板位一列資料，以下是每個欄位的範例
-(	 AD_SPACE廣告板位_PK int, --A+6碼 
+(	 AD_SPACE廣告板位_PK int,
 	AD_SPACE_NAME廣告板位名稱 NVARCHAR(40), --e.g.首頁A-2
 	SIZE版面大小 NVARCHAR(50)　--該版面的廣告圖大小要求，e.g. 700*500
 )
@@ -46,3 +46,47 @@ VALUES('首頁A-1','700*300'),
 ('搜尋結果頁B-3','300*500'),
 ('個人頁C','300*700')
 GO
+
+
+
+
+CREATE FUNCTION GetCampaignPK()
+RETURNS nvarchar(20)
+AS
+BEGIN
+  DECLARE @CampaignID Nvarchar(20)
+  DECLARE @DT nvarchar(5)
+  SELECT @DT ='C'
+  SELECT @CampaignID=
+                    @DT + MAX(CAST(RIGHT([CAMPAIGN活動_PK], 6) AS INT)) from [dbo].[CAMPAIGN_廣告活動]
+  RETURN @CampaignID
+END
+GO
+
+CREATE TRIGGER CreateCampaignPKAutomatically
+   ON  [dbo].[CAMPAIGN_廣告活動]
+   AFTER INSERT -- 觸發事件
+AS 
+BEGIN
+    Declare @c_name NVARCHAR(100),@url NVARCHAR(MAX),@ad_img NVARCHAR(MAX),@ad_space int,@s_time DateTime,@e_timd DateTime
+	DECLARE @CampaignID Nvarchar(20)
+	DECLARE @DT nvarchar(5)
+	SELECT @DT ='C'
+	SELECT @CampaignID=
+                    @DT + CAST((MAX(CAST(RIGHT([CAMPAIGN活動_PK], 6) AS INT))+1) AS nvarchar) from [dbo].[CAMPAIGN_廣告活動]
+	select @c_name=[CAMPAIGN_NAME活動名稱],@ad_space = [AD_SPACE廣告版面_PK],@s_time = [START_TIME開始期間],@e_timd=[END_TIME結束時間] from Inserted
+	update [dbo].[CAMPAIGN_廣告活動] set [CAMPAIGN活動_PK]=@CampaignID where @c_name=[CAMPAIGN_NAME活動名稱] and @s_time = [START_TIME開始期間] and @e_timd=[END_TIME結束時間] and @ad_space = [AD_SPACE廣告版面_PK]
+
+END
+go
+
+Drop Trigger CreateCampaignPKAutomatically 
+go
+
+Insert [dbo].[CAMPAIGN_廣告活動]
+Values ('C100001','name','name','name',1,'1998-02-21 12:01:01','1999-03-04 12:02:02')
+Go
+
+Insert [dbo].[CAMPAIGN_廣告活動]
+Values ('1','name','name','name',1,'1998-02-21 12:01:01','1999-03-05 12:02:02')
+Go

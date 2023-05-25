@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ISpan2023.EStore.SqlDataLayer;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +35,7 @@ namespace AdFakeDataMaker
                     {
                         AdSpacePk = i,
                         IP = "1." + rd.Next(160, 175+1).ToString() + "." + rd.Next(0, 255+1).ToString() + "." + rd.Next(0, 255+1).ToString(),
-                        Time = progress.ToString("yyyy-MM-dd HH:mm:ss")
+                        Time = progress
                     });
                     progress = progress.AddSeconds(rd.Next(minInterval, maxInterval));
 
@@ -42,5 +44,32 @@ namespace AdFakeDataMaker
             return fakeData;
         }
 
-    }
+		public void CreateImpression(LogDto dto)
+		{
+			Func<SqlConnection> conn = SqlDb.GetConnection;
+			string sql = @"Insert [AD_SPACE_IMPRESSION_LOG_廣告版面曝光紀錄] 
+Values(@ad_space,@time,@ip) ";
+			SqlParameter[] sp = new SqlParameterBuilder()
+                                    .AddInt("@ad_space",dto.AdSpacePk)
+                                    .AddDateTime("@time",dto.Time)
+                                    .AddNVarchar("@ip",100,dto.IP)
+									.Build();
+
+			SqlDb2.CreateNoIdentityData(conn, sql, sp);
+		}
+
+		public void CreateClick(LogDto dto)
+		{
+			Func<SqlConnection> conn = SqlDb.GetConnection;
+			string sql = @"Insert [AD_SPACE_CLICK_LOG_廣告版面點擊紀錄] 
+Values(@ad_space,@time,@ip) ";
+			SqlParameter[] sp = new SqlParameterBuilder()
+									.AddInt("@ad_space", dto.AdSpacePk)
+									.AddDateTime("@time", dto.Time)
+									.AddNVarchar("@ip", 100, dto.IP)
+									.Build();
+
+			SqlDb2.CreateNoIdentityData(conn, sql, sp);
+		}
+	}
 }

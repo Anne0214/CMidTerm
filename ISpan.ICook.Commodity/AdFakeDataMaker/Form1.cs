@@ -13,7 +13,8 @@ namespace AdFakeDataMaker
 {
     public partial class FormMain : Form
     {
-        private List<CampaignDto> data { get; set; }
+        public List<LogDto> logDtos;
+        public List<CampaignDto> campaignDtos;
         private List<string> tables =
             new List<string>{
                 "AD_SPACE_CLICK_LOG_廣告版面點擊紀錄",
@@ -30,8 +31,8 @@ namespace AdFakeDataMaker
             //用方法產出假資料 var data
             try
             {
-                data = new CampaignDtoRepository().BuildFakeData();
-                dataGridView1.DataSource = data;
+                campaignDtos = new CampaignDtoRepository().BuildFakeData();
+                dataGridView1.DataSource = campaignDtos;
             }
             catch(Exception ex)
             {
@@ -44,38 +45,68 @@ namespace AdFakeDataMaker
 
         private void btnDb_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //執行寫入
-                //ISpan2023.EStore.SqlDataLayer.SqlDb.Create();
+            //var conn=ISpan2023.EStore.SqlDataLayer.SqlDb.GetConnection();
+            //if (conn != null) MessageBox.Show("成功連線資料庫");
+            //try
+            //{
+            //    //執行寫入
+
                 var repo = new CampaignDtoRepository();
-                int rows = 0;
-                foreach (var dto in data)
+
+                foreach (var dto in campaignDtos)
                 {
-                    int row = repo.Create(dto);
-                    rows += row;
+                    repo.Create(dto);
+                    
                 }
 
-                MessageBox.Show($"成功輸入{rows}");
-            }catch(Exception ex){
-                MessageBox.Show($"輸入資料庫失敗，因為{ex.Message}");
-            }
-            
+                MessageBox.Show("成功輸入");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"輸入資料庫失敗，因為{ex.Message}");
+            //}
+
         }
 
         private void btnShowImpression_Click(object sender, EventArgs e)
         {//近一個月的，每60~300秒一次觀看，每300秒~2000秒一個點擊
-            var data = new LogRepository().CreateLogDto(60,300);
+			logDtos = new LogRepository().CreateLogDto(60,300);
 
-            dataGridView1.DataSource = data;
+            dataGridView2.DataSource = logDtos;
         }
 
         private void btnShowClick_Click(object sender, EventArgs e)
         {
-            //近一個月的，每60~300秒一次觀看，每300秒~2000秒一個點擊
-            var data = new LogRepository().CreateLogDto(300,2000);
+			//近一個月的，每60~300秒一次觀看，每300秒~2000秒一個點擊
+			logDtos = new LogRepository().CreateLogDto(300,2000);
 
-            dataGridView1.DataSource = data;
+            dataGridView3.DataSource = logDtos;
         }
-    }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			var repo = new LogRepository();
+
+			foreach (var dto in logDtos)
+			{
+				repo.CreateImpression(dto);
+
+			}
+
+			MessageBox.Show("成功輸入");
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			var repo = new LogRepository();
+
+			foreach (var dto in logDtos)
+			{
+				repo.CreateClick(dto);
+
+			}
+
+			MessageBox.Show("成功輸入");
+		}
+	}
 }
