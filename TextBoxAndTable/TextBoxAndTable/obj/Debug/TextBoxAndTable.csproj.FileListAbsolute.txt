@@ -1,0 +1,12 @@
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\bin\Debug\TextBoxAndTable.dll
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\bin\Debug\TextBoxAndTable.pdb
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.csproj.AssemblyReference.cache
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.TextBoxCannotBeChanged.resources
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.TextBoxCheckFormat.resources
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.TextBoxEditable.resources
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.TextBoxMultiline.resources
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.TextBoxWordLimit.resources
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.csproj.GenerateResource.cache
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.csproj.CoreCompileInputs.cache
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.dll
+C:\CMidTerm\TextBoxAndTable\TextBoxAndTable\obj\Debug\TextBoxAndTable.pdb
