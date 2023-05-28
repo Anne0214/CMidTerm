@@ -112,7 +112,7 @@ namespace AdFakeDataMaker
             for (int i=1; i <= 7; i++)
             { //第一層哪個版
                 //第二層年
-                for (int g = -3; g < 0; g++)
+                for (int g = -3; g <=0; g++)
                 {
                     var data = AllNameAndDate.Select(x => new CampaignDto()
                     {

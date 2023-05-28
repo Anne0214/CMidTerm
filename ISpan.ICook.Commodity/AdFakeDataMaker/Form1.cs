@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ISpan2023.EStore.SqlDataLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -108,5 +109,13 @@ namespace AdFakeDataMaker
 
 			MessageBox.Show("成功輸入");
 		}
-	}
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(SqlDb.GetConnection() != null)
+            {
+                MessageBox.Show("連線成功");
+            }
+        }
+    }
 }

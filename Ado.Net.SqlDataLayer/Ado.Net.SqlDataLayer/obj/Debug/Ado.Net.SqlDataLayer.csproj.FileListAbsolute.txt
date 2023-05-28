@@ -1,0 +1,6 @@
+D:\CMidTerm\Ado.Net.SqlDataLayer\Ado.Net.SqlDataLayer\bin\Debug\Ado.Net.SqlDataLayer.dll
+D:\CMidTerm\Ado.Net.SqlDataLayer\Ado.Net.SqlDataLayer\bin\Debug\Ado.Net.SqlDataLayer.pdb
+D:\CMidTerm\Ado.Net.SqlDataLayer\Ado.Net.SqlDataLayer\obj\Debug\Ado.Net.SqlDataLayer.csproj.AssemblyReference.cache
+D:\CMidTerm\Ado.Net.SqlDataLayer\Ado.Net.SqlDataLayer\obj\Debug\Ado.Net.SqlDataLayer.csproj.CoreCompileInputs.cache
+D:\CMidTerm\Ado.Net.SqlDataLayer\Ado.Net.SqlDataLayer\obj\Debug\Ado.Net.SqlDataLayer.dll
+D:\CMidTerm\Ado.Net.SqlDataLayer\Ado.Net.SqlDataLayer\obj\Debug\Ado.Net.SqlDataLayer.pdb

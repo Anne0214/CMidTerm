@@ -26,7 +26,7 @@ namespace AdFakeDataMaker
             //每個版面建立
             for (int i = 1; i <= 7; i++)
             {
-                DateTime progress = DateTime.Now.AddMonths(-1);
+                DateTime progress = DateTime.Now.AddDays(-14);
                 while (progress < DateTime.Now)
                 {
                     Random rd = new Random(Guid.NewGuid().GetHashCode()); //not allow repeated

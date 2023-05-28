@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F881788-8561-4822-A607-C5C07BEA813D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FormMain</RootNamespace>
+    <AssemblyName>FormMain</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Buttons, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Buttons.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormProductCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductCreate.Designer.cs">
+      <DependentUpon>FormProductCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSku.Designer.cs">
+      <DependentUpon>FormSku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FB_Table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FB_Table.designer.cs">
+      <DependentUpon>FB_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProductEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductEdit.Designer.cs">
+      <DependentUpon>FormProductEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExportCSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExportCSV.Designer.cs">
+      <DependentUpon>FormExportCSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProductSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductSearch.Designer.cs">
+      <DependentUpon>FormProductSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IExportCSV.cs" />
+    <Compile Include="ImageUpload.cs" />
+    <Compile Include="INotify.cs" />
+    <Compile Include="Staff.cs" />
+    <Compile Include="LoginManagement.cs" />
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoginFail.Designer.cs">
+      <DependentUpon>FormLoginFailed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoginFailed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\TextBoxCannotBeChanged.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TextBoxCannotBeChanged.designer.cs">
+      <DependentUpon>TextBoxCannotBeChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TextBoxCheckFormat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TextBoxCheckFormat.designer.cs">
+      <DependentUpon>TextBoxCheckFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TextBoxEditable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TextBoxEditable.designer.cs">
+      <DependentUpon>TextBoxEditable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TextBoxMultiline.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TextBoxMultiline.designer.cs">
+      <DependentUpon>TextBoxMultiline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TextBoxWordLimit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TextBoxWordLimit.designer.cs">
+      <DependentUpon>TextBoxWordLimit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Toast.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Toast.designer.cs">
+      <DependentUpon>Toast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MarketingVM.cs" />
+    <Compile Include="ViewModels\OrderVM.cs" />
+    <Compile Include="ViewModels\ProductDetailVM.cs" />
+    <Compile Include="ViewModels\ProductSearchVM.cs" />
+    <Compile Include="ViewModels\SkuVM.cs" />
+    <EmbeddedResource Include="FormProductCreate.resx">
+      <DependentUpon>FormProductCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSku.resx">
+      <DependentUpon>FormSku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FB_Table.resx">
+      <DependentUpon>FB_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProductEdit.resx">
+      <DependentUpon>FormProductEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExportCSV.resx">
+      <DependentUpon>FormExportCSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginFailed.resx">
+      <DependentUpon>FormLoginFailed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProductSearch.resx">
+      <DependentUpon>FormProductSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserControls\TextBoxCannotBeChanged.resx">
+      <DependentUpon>TextBoxCannotBeChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TextBoxCheckFormat.resx">
+      <DependentUpon>TextBoxCheckFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TextBoxEditable.resx">
+      <DependentUpon>TextBoxEditable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TextBoxMultiline.resx">
+      <DependentUpon>TextBoxMultiline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TextBoxWordLimit.resx">
+      <DependentUpon>TextBoxWordLimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Toast.resx">
+      <DependentUpon>Toast.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ISpan2023.UCook.BackEnd\ISpan2023.UCook.BackEnd.csproj">
+      <Project>{B49E6CE7-9753-4D2B-9D04-E6C4118A0CDA}</Project>
+      <Name>ISpan2023.UCook.BackEnd</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

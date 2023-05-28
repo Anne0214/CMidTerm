@@ -2,13 +2,13 @@ use [iSpanDataBaseICook]
 go
 
 Create Table [dbo].[AD_SPACE_IMPRESSION_LOG_¼s§iª©­±Ãn¥ú¬ö¿ý] --°O¿ý¨C±ø¬Ý¹L¼s§iªº¬ö¿ý¡A¤ñ¦p¤j¶¯5/23 12:22¬Ý¨ì¤FA¼s§i¡A´N·|¦b¦¹ªí¼W¥[¤@­Ó¸ê®Æ[A¼s§i,5/23 12:22,¤j¶¯ªºIP]
-(	AD_SPACE¼s§iª©­±_PK int, --A+6½X FK°Ñ¦Ò¨ì[AD_SPACE_¼s§iª©­±]ªºAD_SPACE¼s§iªO¦ì_PK
+(	AD_SPACE¼s§iª©­±_PK int, 
 	IMPRESSION_TIMEÃn¥ú®É¶¡ datetime,
 	IP¨Ï¥ÎªÌIP NVARCHAR(20) --¬Ý¨ì¸Ó¼s§iªº¨Ï¥ÎªÌIP
 	)
 
 Create Table [dbo].[AD_SPACE_CLICK_LOG_¼s§iª©­±ÂIÀ»¬ö¿ý] --¸ò[AD_SPACE_IMPRESSION_LOG_¼s§iª©­±Ãn¥ú¬ö¿ý]¤@¼Ëªº¹D²z¡A¦ý¬O¬ö¿ýÂIÀ»¨Æ¥ó
-(	AD_SPACE¼s§iª©­±_PK int, --A+6½X FK°Ñ¦Ò¨ì[AD_SPACE_¼s§iª©­±]ªºAD_SPACE¼s§iªO¦ì_PK
+(	AD_SPACE¼s§iª©­±_PK int, 
 	CLICK_TIMEÂIÀ»®É¶¡ datetime,
 	IP¨Ï¥ÎªÌIP NVARCHAR(20)
 	)
@@ -25,15 +25,10 @@ CREATE TABLE [dbo].[CAMPAIGN_¼s§i¬¡°Ê] --°O¿ý©Ò¦³«Ø¥ß¹Lªº¼s§i¬¡°Ê¡A¤ñ¦p¤µ¤Ñ¦³¤@À
 	CAMPAIGN_NAME¬¡°Ê¦WºÙ NVARCHAR(100), --e.g. ¥À¿Ë¸`¬¡°Ê
 	URL³sµ² NVARCHAR(MAX), --ÂIÀ»¸Ó¼s§i·|¸õÂàªº³sµ² 
 	AD_IMG¼s§i¹Ï NVARCHAR(MAX), --¼s§i¹ÏªºÀx¦s¦ì¸m¡A¥i¯à¬Oºô§}©ÎÀÉ®×¦ì¸m
-
-)
-
-CREATE TABLE [dbo].[CAMPAIGN_AD¼s§i¬¡°Ê¨Ï¥Îª©­±] --°O¿ý©Ò¦³¼s§i¬¡°Ê¨Ï¥Îªº¼s§iª©­±¡A¤ñ¦p¥À¿Ë¸`¬¡°Ê¥Î¤FAª©­±¸òBª©­±¡A´N·|¬O¨â±ø¸ê®Æ
-( 	CAMPAIGN¬¡°Ê_PK NVARCHAR(20),¡@--C+6½X FK°Ñ¦Ò¨ì[CAMPAIGN_¼s§i¬¡°Ê]ªºCAMPAIGN¬¡°Ê_PK
 	AD_SPACE¼s§iª©­±_PK INT, --A+6½X FK°Ñ¦Ò¨ì[AD_SPACE_¼s§iª©­±]ªºAD_SPACE¼s§iªO¦ì_PK
 	START_TIME¶}©l´Á¶¡ DATETIME, --ªí¥Ü¸Ó¬¡°Ê¨Ï¥Î¸Óª©­±ªº¶}©l®É¶¡
 	END_TIMEµ²§ô®É¶¡ DATETIME --ªí¥Ü¸Ó¬¡°Ê¨Ï¥Î¸Óª©­±ªº¶}©l®É¶¡
-	)
+)
 
 GO
 
