@@ -60,11 +60,17 @@
     <Compile Include="FormProductCreate.Designer.cs">
       <DependentUpon>FormProductCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSku.cs">
+    <Compile Include="FormSkuForCreateProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSku.Designer.cs">
-      <DependentUpon>FormSku.cs</DependentUpon>
+    <Compile Include="FormSkuForCreateProduct.Designer.cs">
+      <DependentUpon>FormSkuForCreateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSkuForEditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSkuForEditProduct.Designer.cs">
+      <DependentUpon>FormSkuForEditProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FB_Table.cs">
       <SubType>UserControl</SubType>
@@ -159,8 +165,11 @@
     <EmbeddedResource Include="FormProductCreate.resx">
       <DependentUpon>FormProductCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSku.resx">
-      <DependentUpon>FormSku.cs</DependentUpon>
+    <EmbeddedResource Include="FormSkuForCreateProduct.resx">
+      <DependentUpon>FormSkuForCreateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSkuForEditProduct.resx">
+      <DependentUpon>FormSkuForEditProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FB_Table.resx">
       <DependentUpon>FB_Table.cs</DependentUpon>

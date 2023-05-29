@@ -85,3 +85,6 @@ Go
 Insert [dbo].[CAMPAIGN_廣告活動]
 Values ('1','name','name','name',1,'1998-02-21 12:01:01','1999-03-05 12:02:02')
 Go
+
+Delete from [dbo].[CAMPAIGN_廣告活動]
+where [CAMPAIGN活動_PK] = 'C100001'

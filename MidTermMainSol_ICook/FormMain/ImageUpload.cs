@@ -29,7 +29,7 @@ namespace FormMain
             Random rand = new Random(Guid.NewGuid().GetHashCode()); //產生亂數以產生名字
             string fileExt = Path.GetExtension(filePath); //取得副檔名
             string name = rand.Next(10001, 99999).ToString(); //產生新檔名
-            string savePath = @"images/" + name + fileExt; //產生新圖片路徑
+            string savePath = @"images/" + name + fileExt; //產生新圖片路徑。請先在你的bin裡面加一個資料夾叫images
             images.Save(savePath); //儲存到新路徑
             return savePath;
 

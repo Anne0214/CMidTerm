@@ -16,6 +16,7 @@ namespace FormMain
 {
     public partial class FormProductCreate : Form
     {
+        //private List<SkuDto> skuDtos= new List<SkuDto>();
         
         public FormProductCreate()
         {
@@ -28,7 +29,19 @@ namespace FormMain
             string[] targets = new string[] { "生活", "咖啡", "食器", "乾貨", "調味品", "餐廚" };
             comboBoxCategory.Items.AddRange(targets);
             comboBoxCategory.SelectedIndex = 0;
-        }
+
+            //skuDtos.Add(new SkuDto()
+            //{
+            //    SoldNumber=0,
+            //    StockNumber=100,
+            //    TypeName="單一規格",
+            //});
+            //dataGridViewSku.DataSource = skuDtos;
+
+            //商品圖片放預設
+            this.pictureBoxCover.Image= System.Drawing.Image.FromStream(System.Net.WebRequest.Create("https://i.imgur.com/CVST7tT.png").GetResponse().GetResponseStream());
+
+		}
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
@@ -90,8 +103,8 @@ namespace FormMain
             };
 
             //建skuDtos，存成list
-            List<SkuDto> skuDtos = new List<SkuDto>();
 
+            List<SkuDto> skuDtos=  new List<SkuDto>();
             foreach (ListViewItem i in listViewSku.Items)
             {
                 string typeName = i.SubItems[1].Text;
@@ -133,17 +146,59 @@ namespace FormMain
 
         private void buttonAddSku_Click(object sender, EventArgs e)
         {
-            FormSku frm = new FormSku(true);
+            FormSkuForCreateProduct frm = new FormSkuForCreateProduct(true,"","");
             frm.Owner = this;
             frm.ShowDialog();
 
         }
         public void AddSku(string typeName, int stockNumber)
-        {
+        { //給sku子視窗呼叫，用於新增sku，以更改本視窗的listView
             ListViewItem item = new ListViewItem();
             item.SubItems.Add(typeName);
             item.SubItems.Add(stockNumber.ToString());
             listViewSku.Items.Add(item);
+
+            //         skuDtos.Add(new SkuDto()
+            //         {
+            //	SoldNumber = 0,
+            //	StockNumber = stockNumber,
+            //	TypeName = typeName,
+            //});
         }
-    }
+
+        public void EditSku(string typeName, int stockNumber)
+		{//給sku子視窗呼叫，用於修改sku，以更改本視窗的listView
+			listViewSku.SelectedItems[0].SubItems[1].Text = typeName;
+            listViewSku.SelectedItems[0].SubItems[2].Text = stockNumber.ToString();
+		}
+
+		private void listViewSku_Click(object sender, EventArgs e)
+		{ //todo 找一個更好的時機
+            if (listViewSku.FocusedItem == null) return;
+
+            buttonEdit.Enabled = true;
+            buttonDelete.Enabled = true;
+		}
+
+		private void buttonEdit_Click(object sender, EventArgs e)
+		{
+            
+			string typeName = listViewSku.SelectedItems[0].SubItems[1].Text;
+			string stockNumber = listViewSku.SelectedItems[0].SubItems[2].Text;
+			FormSkuForCreateProduct frm = new FormSkuForCreateProduct(false,typeName,stockNumber);
+            frm.Owner = this;
+            frm.ShowDialog();
+		}
+
+		private void buttonDelete_Click(object sender, EventArgs e)
+		{
+			if (listViewSku.Items.Count <= 1)
+			{
+				MessageBox.Show("無法刪除，因為每個商品都會有至少一個型號");
+                return;
+			}
+			ListViewItem item = listViewSku.SelectedItems[0];
+			listViewSku.Items.Remove(item);
+		}
+	}
 }

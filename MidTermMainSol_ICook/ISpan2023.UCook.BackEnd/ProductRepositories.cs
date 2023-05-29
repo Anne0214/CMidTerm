@@ -28,7 +28,7 @@ namespace ISpan2023.UCook.BackEnd
             #region 組成sql語法
             string sql = @"Select a.SPU,[ON_SHELF上架狀態],[CATEGORY商品分類名稱],[PRODUCT_NAME商品名稱],[SALE_PRICE銷售價],SKU,STOCK_NUMBER庫存數量,SOLD_NUMBER售出數量
 From [dbo].[PRODUCT_SPU_商品] as a
-Join PRODUCT_SEARCH as b
+Join PRODUCT_SEARCH as b  
 On a.SPU = b.SPU";
 
             string target = String.Empty;
@@ -156,5 +156,102 @@ Values (@spu,@sku,@typeName,@stockNumber,@soldNumber)";
             MessageBox.Show("成功");
                 
         }
+
+        public void Update(ProductDetailDto prodDto,List<SkuDto> skuDtos)
+        {   //交易 : 修改product資料，刪除sku資料後再創建
+
+			#region 修改product的準備
+			string sql_prod = @"Update [dbo].[PRODUCT_SPU_商品_TMP]
+Set [img]=@img, [ON_SHELF上架狀態] = @onShelf
+,[CATEGORY商品分類名稱]= @category
+,[PRODUCT_NAME商品名稱] = @prodName
+,[PRODUCT_DESCRIPTION簡短商品說明] = @shortIntro
+,[FULL_PRODUCT_DESCRIPTION完整說明圖片] = @fullIntro
+,[PURCHASE_PRICE採購價] = @purchasePrice
+,[TAG_PRICE吊牌價] = @tagPrice
+,[SALE_PRICE銷售價] = @salePrice
+Where [SPU] = @spu";
+			SqlParameter[] param_prod = new SqlParameterBuilder()
+												.AddNVarchar("@img", 5000, prodDto.Cover)
+												.AddNVarchar("@onShelf", 2, prodDto.OnShelf)
+												.AddNVarchar("@category", 10, prodDto.Category)
+												.AddNVarchar("@prodName", 30, prodDto.ProductName)
+												.AddNVarchar("@shortIntro", 500, prodDto.ProductDescription)
+												.AddNVarchar("@fullIntro", 5000, prodDto.FullProductDescription)
+												.AddInt("@purchasePrice", prodDto.PurchasePrice)
+												.AddInt("@tagPrice", prodDto.TagPrice)
+												.AddInt("@salePrice", prodDto.SalePrice)
+                                                .AddNVarchar("@spu",100,prodDto.Spu)
+												.Build();
+#endregion
+
+            //刪除sku的準備
+			string sql_sku_delete = @"Delete From [dbo].[PRODUCT_SKU_商品_TMP]
+Where SPU = @spu";
+
+
+
+            //建立sku的準備
+            string sql_sku_create = @"Insert into [dbo].[PRODUCT_SKU_商品_TMP]
+Values (@spu,@sku,@typeName,@stockNumber,@soldNumber)";
+
+			//連線、交易開始
+			using (SqlConnection sqlConnection = SqlDb.GetConnection())
+			{
+				sqlConnection.Open();
+				SqlTransaction tran = sqlConnection.BeginTransaction();
+
+				try
+				{
+					SqlCommand cmd = sqlConnection.CreateCommand();
+
+					cmd.Connection = sqlConnection;
+					cmd.Transaction = tran;
+
+                    //修改product
+					cmd.CommandText = sql_prod;
+					cmd.Parameters.AddRange(param_prod);
+					cmd.ExecuteNonQuery();
+
+                    //刪除該spu的所有sku
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = sql_sku_delete;
+                    SqlParameter param_sku_delete = new SqlParameter("@spu", prodDto.Spu);
+                    cmd.Parameters.Add(param_sku_delete);
+                    cmd.ExecuteNonQuery();
+
+
+                    //創sku
+                    int g = 1; //用來做sku編號的數字
+							   //遍歷每一個sku
+					foreach (var i in skuDtos)
+					{
+						cmd.Parameters.Clear();
+						cmd.CommandText = sql_sku_create;
+						SqlParameter[] params_sku = new SqlParameterBuilder()
+											.AddNVarchar("@spu", 100, prodDto.Spu)
+											.AddNVarchar("@sku", 100, prodDto.Spu + "-" + g.ToString())
+											.AddNVarchar("@typeName", 100, i.TypeName)
+											.AddInt("@stockNumber", i.StockNumber)
+											.AddInt("@soldNumber", i.SoldNumber)
+											.Build();
+						cmd.Parameters.AddRange(params_sku);
+						cmd.ExecuteNonQuery();
+						g++;
+					}
+
+					tran.Commit();
+
+				}
+				catch (Exception ex)
+				{
+					tran.Rollback();
+					throw new Exception($"更新失敗，原因:{ex.Message}");
+				}
+			}
+			MessageBox.Show("成功");
+
+
+		}
     }
 }

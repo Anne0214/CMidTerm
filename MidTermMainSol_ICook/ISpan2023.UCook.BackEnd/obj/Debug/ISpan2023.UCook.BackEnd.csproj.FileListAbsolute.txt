@@ -30,3 +30,11 @@ D:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\obj\Debug\ISpan2023.UCo
 D:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\obj\Debug\ISpan2023.UCook.BackEnd.pdb
 D:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\bin\Debug\Ado.Net.SqlDataLayer.dll
 D:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\obj\Debug\ISpan2023.UCook.BackEnd.csproj.CopyComplete
+C:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\bin\Debug\ISpan2023.UCook.BackEnd.dll
+C:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\bin\Debug\ISpan2023.UCook.BackEnd.pdb
+C:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\bin\Debug\Ado.Net.SqlDataLayer.dll
+C:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\obj\Debug\ISpan2023.UCook.BackEnd.csproj.AssemblyReference.cache
+C:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\obj\Debug\ISpan2023.UCook.BackEnd.csproj.CoreCompileInputs.cache
+C:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\obj\Debug\ISpan2023.UCook.BackEnd.csproj.CopyComplete
+C:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\obj\Debug\ISpan2023.UCook.BackEnd.dll
+C:\CMidTerm\MidTermMainSol_ICook\ISpan2023.UCook.BackEnd\obj\Debug\ISpan2023.UCook.BackEnd.pdb
