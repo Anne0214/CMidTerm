@@ -99,24 +99,21 @@ namespace FormMain
 				//取值
 				string prodName = textBoxProdName.afiledValue;
 				var imgSave = new ImageUpload();
-			string fullDescription_newPath = String.Empty;
-			string cover_newPath = String.Empty;
+				string fullDescription_newPath = String.Empty;
+				string cover_newPath = String.Empty;
 				if (!FullDescriptionFilePath.Contains("http"))
 				{
 					fullDescription_newPath = imgSave.SaveImage(FullDescriptionFilePath);
-			}else{
-				
-				fullDescription_newPath = FullDescriptionFilePath;
+				}else{
+					fullDescription_newPath = FullDescriptionFilePath;
 				}
 				if (!CoverFilePath.Contains("http"))
 				{
-				cover_newPath = imgSave.SaveImage(CoverFilePath);
-			}
-			else
-			{
-				cover_newPath = CoverFilePath;
-			}
-				
+					cover_newPath = imgSave.SaveImage(CoverFilePath);
+				}
+				else{
+					cover_newPath = CoverFilePath;
+				}
 				
 				
 				string shortIntro = textBoxProdDescription.afiledValue;
@@ -227,9 +224,16 @@ namespace FormMain
 			frm.ShowDialog(this);
 		}
 
+		/// <summary>
+		/// 給sku子視窗呼叫，用於修改sku，以更改本視窗的listView
+		/// </summary>
+		/// <param name="sku"></param>
+		/// <param name="typeName"></param>
+		/// <param name="stockNumber"></param>
+		/// <param name="soldNumber"></param>
 		public void EditSku(string sku,string typeName, int stockNumber,int soldNumber)
 		{
-			//給sku子視窗呼叫，用於修改sku，以更改本視窗的listView
+			
 			listViewSku.SelectedItems[0].SubItems[1].Text = sku;
 			listViewSku.SelectedItems[0].SubItems[2].Text = typeName;
 			listViewSku.SelectedItems[0].SubItems[3].Text = stockNumber.ToString();

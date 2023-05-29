@@ -121,8 +121,8 @@ namespace FormMain
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        { //對資料點擊修改會觸發的事件
-            if (dataGridView1.Columns[e.ColumnIndex].Name =="Operation" && e.RowIndex > 0)
+        { 
+            if (dataGridView1.Columns[e.ColumnIndex].Name =="Operation" && e.RowIndex > 0) //只有對資料點擊修改時會發動
             {
                 string spu = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
@@ -132,11 +132,11 @@ namespace FormMain
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FormProductCreate frm = new FormProductCreate();
-            frm.Owner = this;
-            frm.Show();
-        }
-    }
+		private void buttonAddNewProduct_Click(object sender, EventArgs e)
+		{
+			FormProductCreate frm = new FormProductCreate();
+			frm.Owner = this;
+			frm.Show();
+		}
+	}
 }

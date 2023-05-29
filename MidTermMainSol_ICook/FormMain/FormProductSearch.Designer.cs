@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.Checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.col_SPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +47,7 @@
 			this.buttonSearch = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.toast = new FormItem.Toast();
+			this.buttonAddNewProduct = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -65,11 +66,11 @@
             this.col_SoldNumber,
             this.col_StockNumber,
             this.Operation});
-			this.dataGridView1.Location = new System.Drawing.Point(78, -50);
+			this.dataGridView1.Location = new System.Drawing.Point(32, 142);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.RowHeadersWidth = 62;
 			this.dataGridView1.RowTemplate.Height = 24;
-			this.dataGridView1.Size = new System.Drawing.Size(800, 176);
+			this.dataGridView1.Size = new System.Drawing.Size(948, 271);
 			this.dataGridView1.TabIndex = 4;
 			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
@@ -146,9 +147,9 @@
 			// 
 			// Operation
 			// 
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.NullValue = "修改";
-			this.Operation.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.NullValue = "修改";
+			this.Operation.DefaultCellStyle = dataGridViewCellStyle2;
 			this.Operation.HeaderText = "操作";
 			this.Operation.MinimumWidth = 8;
 			this.Operation.Name = "Operation";
@@ -160,7 +161,7 @@
 			this.LabelRowCount.Anchor = System.Windows.Forms.AnchorStyles.Right;
 			this.LabelRowCount.AutoSize = true;
 			this.LabelRowCount.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.LabelRowCount.Location = new System.Drawing.Point(358, -139);
+			this.LabelRowCount.Location = new System.Drawing.Point(479, -297);
 			this.LabelRowCount.Name = "LabelRowCount";
 			this.LabelRowCount.Size = new System.Drawing.Size(83, 20);
 			this.LabelRowCount.TabIndex = 5;
@@ -215,32 +216,46 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(731, 8);
+			this.button1.Location = new System.Drawing.Point(706, 105);
 			this.button1.Margin = new System.Windows.Forms.Padding(2);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(50, 15);
 			this.button1.TabIndex = 10;
 			this.button1.Text = "button1";
 			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+
 			// 
 			// toast
 			// 
 			this.toast.AMessage = "儲存成功";
 			this.toast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.toast.Location = new System.Drawing.Point(17, 163);
+			this.toast.Location = new System.Drawing.Point(13, 344);
 			this.toast.Margin = new System.Windows.Forms.Padding(4);
 			this.toast.Name = "toast";
 			this.toast.Size = new System.Drawing.Size(203, 55);
 			this.toast.TabIndex = 1;
 			this.toast.Visible = false;
 			// 
+			// buttonAddNewProduct
+			// 
+			this.buttonAddNewProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+			this.buttonAddNewProduct.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.buttonAddNewProduct.ForeColor = System.Drawing.Color.Black;
+			this.buttonAddNewProduct.Location = new System.Drawing.Point(875, 105);
+			this.buttonAddNewProduct.Name = "buttonAddNewProduct";
+			this.buttonAddNewProduct.Size = new System.Drawing.Size(105, 31);
+			this.buttonAddNewProduct.TabIndex = 11;
+			this.buttonAddNewProduct.Text = "新增商品";
+			this.buttonAddNewProduct.UseVisualStyleBackColor = false;
+			this.buttonAddNewProduct.Click += new System.EventHandler(this.buttonAddNewProduct_Click);
+			// 
 			// FormProductSearch
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(903, 741);
+			this.ClientSize = new System.Drawing.Size(1024, 425);
+			this.Controls.Add(this.buttonAddNewProduct);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.buttonClear);
 			this.Controls.Add(this.buttonSearch);
@@ -277,5 +292,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_SoldNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_StockNumber;
         private System.Windows.Forms.DataGridViewButtonColumn Operation;
-    }
+		private System.Windows.Forms.Button buttonAddNewProduct;
+	}
 }
