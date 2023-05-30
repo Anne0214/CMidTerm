@@ -94,9 +94,10 @@ namespace FormMain
 		{
 			try
 			{
-				//todo 預檢查
 
-				//取值
+
+
+				//取值，第一步型別檢查及是否有輸入
 				string prodName = textBoxProdName.afiledValue;
 				var imgSave = new ImageUpload();
 				string fullDescription_newPath = String.Empty;
@@ -154,8 +155,8 @@ namespace FormMain
 				}
 
 			//建prductDto
-			var productDto = new ProductDetailDto()
-			{
+				var productDto = new ProductDetailDto()
+				{
 					Spu = _spu,
 					ProductName = prodName,
 					Cover = cover_newPath,
@@ -187,8 +188,7 @@ namespace FormMain
 				}
 
 
-
-				//修改的方法
+				//呼叫修改的方法
 				var repo = new ProductRepositories();
 				repo.Update(productDto, skuDtos);
 			}
@@ -200,7 +200,7 @@ namespace FormMain
 
 			//通知(儲存成功的狀況)
 			INotify frm = this.Owner as INotify;
-			frm.Success();
+			frm.Success("修改成功");
 
 			//關閉本視窗
 			this.Close();

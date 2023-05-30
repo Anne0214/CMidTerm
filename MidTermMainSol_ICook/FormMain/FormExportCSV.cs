@@ -12,25 +12,26 @@ using System.Windows.Forms;
 
 namespace FormMain
 {
-	public partial class FormExportCSV : Form
+	public partial class FormExportCSV<T> : Form
 	{
-        private String[] _Options { get; set; }
-
-
+        private String[] _ColumnOptions { get; set; }//todo 改成enum，跟欄位對應
+		private List<T> _SelectedData { get; set; }
+ 
 
         /// <summary>
         /// 需定義可選欄位包含哪些，將會在視窗載入時成為可選欄位的內容
         /// </summary>
         /// <param name="columns">中文欄位名稱組成的Array</param>
-        public FormExportCSV(string[] columns)
+        public FormExportCSV(string[] columns, List<T> selectedData)
 		{
 			InitializeComponent();
-			_Options = columns;
+			_ColumnOptions = columns;
+			_SelectedData = selectedData;
 		}
 
 		private void FormExportCSV_Load(object sender, EventArgs e)
 		{
-			listBoxOption.Items.AddRange(_Options);
+			listBoxOption.Items.AddRange(_ColumnOptions);
 		}
 
 		private void buttonToRight_Click(object sender, EventArgs e)
@@ -79,16 +80,25 @@ namespace FormMain
 
 
 
-		public void ExportCsv<T>(string filePath,List<T> dtos)
+		public void ExportCsv<T>(string filePath)
 		{
+
+			//拿被選中的欄位
+			List<String> column = new List<String>(); 
+			foreach (var i in listBoxSelected.SelectedItems)
+			{
+
+
+			}
 			using (var file = new StreamWriter(filePath))
 			{
 				Type t = typeof(T);
-				PropertyInfo[] propInfos = t.GetProperties(BindingFlags.Public | BindingFlags.Instance); //得到該dto的所有屬性
-				//輸出屬性名稱
+				PropertyInfo[] propInfos = t.GetProperties(BindingFlags.Public); //得到該dto的所有屬性
+				
+				//輸出屬性名稱，作為欄位
 				file.WriteLineAsync(string.Join(",", propInfos.Select(i => i.Name)));
 
-				foreach (var item in dtos)
+				foreach (var item in _SelectedData)
 				{
 					file.WriteLineAsync(string.Join(",", propInfos.Select(i => i.GetValue(item)))); //組成csv文字
 				}
@@ -101,6 +111,8 @@ namespace FormMain
 		{ //todo等之後再寫完
 			SaveFileDialog dialog = new SaveFileDialog();
 			string filePath = dialog.FileName;
+
+			//輸出儲存完畢後通知
 			IExportCSV frm = this.Parent as IExportCSV;
 
 		}

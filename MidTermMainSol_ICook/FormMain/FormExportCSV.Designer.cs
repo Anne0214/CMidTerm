@@ -1,6 +1,6 @@
 ﻿namespace FormMain
 {
-	partial class FormExportCSV
+	partial class FormExportCSV<T>
 	{
 		/// <summary>
 		/// Required designer variable.

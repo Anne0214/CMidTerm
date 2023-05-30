@@ -246,10 +246,10 @@ Values (@spu,@sku,@typeName,@stockNumber,@soldNumber)";
 				catch (Exception ex)
 				{
 					tran.Rollback();
-					throw new Exception($"更新失敗，原因:{ex.Message}");
+					throw new Exception(ex.Message);
 				}
 			}
-			MessageBox.Show("成功");
+
 
 
 		}

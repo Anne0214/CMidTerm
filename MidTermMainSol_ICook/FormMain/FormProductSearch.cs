@@ -46,20 +46,63 @@ namespace FormMain
 			LabelRowCount.Text = "總共 " + dataGridView1.Rows.Count.ToString() + " 筆";
 		}
 
-		public void Success()
+		public void Success(string message)
 		{
+			toast.AMessage = message; 
 			toast.ShowUp();
 			Display(); //用來刷新表格資料
 		}
 
+		/// <summary>
+		/// 顯示資料的方法
+		/// </summary>
 		private void Display()
-		{ 
-            List<ProductSearchDto> data = new List<ProductSearchDto>();
-            var repo = new ProductRepositories();
-            data =repo.Search("", "", "");
+		{
+			string searchText = textBoxSearch.Text;
 
-            dataGridView1.DataSource = data;
-        }
+			List<ProductSearchDto> data = new List<ProductSearchDto>();
+            var repo = new ProductRepositories();
+
+			switch (comboBoxTarget.SelectedItem)
+			{
+				case "SKU":
+					data = repo.Search("", "", searchText);
+					break;
+				case "商品名稱":
+					data = repo.Search(searchText, "", "");
+					break;
+				case "SPU":
+					data = repo.Search("", searchText, "");
+					break;
+			}
+			//如果沒有一筆資料符合，要說沒有資料符合(messageBox.show)
+			if (data.Count == 0 || data == null) //todo 搞懂差異
+			{
+				MessageBox.Show("查無符合的資料");
+				return;
+			}
+
+			foreach(var item in data)
+			{
+				//0:待上架,1:上架中,2:封存
+				switch (item.OnShelf)
+				{
+					case "0":
+						item.OnShelf = "待上架";
+						break;
+					case "1":
+						item.OnShelf = "上架中";
+						break;
+					case "2":
+						item.OnShelf = "封存";
+						break;
+				}
+				item.AllSku = item.AllSku.Substring(1);
+			}
+
+
+			dataGridView1.DataSource = data;
+		}
 
 
 
@@ -75,39 +118,17 @@ namespace FormMain
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            string searchText = textBoxSearch.Text;
-            if (searchText == string.Empty)
+			
+            if (textBoxSearch.Text == string.Empty)
             {
                 textBoxSearch.ForeColor = Color.Red;
                 textBoxSearch.Text = "請輸入搜尋內容";
                 return;
             }
+			Display();
 
-            List<ProductSearchDto> data = new List<ProductSearchDto>();
-            var repo = new ProductRepositories();
 
-            switch (comboBoxTarget.SelectedItem)
-            {
-                case "SKU":
-                    data = repo.Search("", "", searchText);
-                    break;
-                case "商品名稱":
-                    data = repo.Search(searchText, "", "");
-                    break;
-                case "SPU":
-                    data = repo.Search("", searchText, "");
-                    break;
-            }
-            //如果沒有一筆資料符合，要說沒有資料符合(messageBox.show)
-            if (data.Count == 0 || data == null) //todo 搞懂差異
-            {
-                MessageBox.Show("查無符合的資料");
-                return;
-            }
-            //更新資料來源
-            dataGridView1.DataSource = data;
-
-        }
+		}
 
         private void textBoxSearch_Click(object sender, EventArgs e)
         {

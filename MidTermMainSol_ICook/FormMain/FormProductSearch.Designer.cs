@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.Checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.col_SPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +45,6 @@
 			this.comboBoxTarget = new System.Windows.Forms.ComboBox();
 			this.buttonClear = new System.Windows.Forms.Button();
 			this.buttonSearch = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.toast = new FormItem.Toast();
 			this.buttonAddNewProduct = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -147,9 +146,9 @@
 			// 
 			// Operation
 			// 
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.NullValue = "修改";
-			this.Operation.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.NullValue = "修改";
+			this.Operation.DefaultCellStyle = dataGridViewCellStyle1;
 			this.Operation.HeaderText = "操作";
 			this.Operation.MinimumWidth = 8;
 			this.Operation.Name = "Operation";
@@ -214,17 +213,6 @@
 			this.buttonSearch.UseVisualStyleBackColor = false;
 			this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
 			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(706, 105);
-			this.button1.Margin = new System.Windows.Forms.Padding(2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(50, 15);
-			this.button1.TabIndex = 10;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-
-			// 
 			// toast
 			// 
 			this.toast.AMessage = "儲存成功";
@@ -256,7 +244,6 @@
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(1024, 425);
 			this.Controls.Add(this.buttonAddNewProduct);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.buttonClear);
 			this.Controls.Add(this.buttonSearch);
 			this.Controls.Add(this.comboBoxTarget);
@@ -281,7 +268,6 @@
         private System.Windows.Forms.ComboBox comboBoxTarget;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Checkbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_SPU;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_ProductName;

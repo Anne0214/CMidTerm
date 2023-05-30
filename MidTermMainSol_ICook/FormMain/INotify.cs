@@ -8,6 +8,6 @@ namespace FormMain
 {
     public interface INotify
     {
-        void Success();
+        void Success(string message);
     }
 }
