@@ -60,5 +60,30 @@ namespace TextBoxAndTable
 			labelWordCount.Text = $"{currentCharacterCount}/{afiledMaxCount}";
 
 		}
-	}
+
+        public void Error(string errorMessage)
+        {
+            panel1.Visible = true;
+            label2.Text = errorMessage;
+            label2.Visible = true;
+        }
+        /// <summary>
+        /// 讓文字框變為輸入有錯誤時的樣子，錯誤訊息為「請輸入正確的[欄位名稱]」
+        /// </summary>
+        public void Error()
+        {
+            panel1.Visible = true;
+            label2.Text = "請輸入正確的" + label1.Text;
+            label2.Visible = true;
+        }
+
+        /// <summary>
+        /// 文字框變回正常型態
+        /// </summary>
+        public void ReturnDefault()
+        {
+            panel1.Visible = false;
+            label2.Visible = false;
+        }
+    }
 }

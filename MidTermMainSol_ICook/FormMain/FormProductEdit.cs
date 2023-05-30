@@ -26,9 +26,9 @@ namespace FormMain
 		{
 			InitializeComponent();
 			this.AutoScroll = true;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(213)))), ((int)(((byte)(230)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(230)))));
 
-			_spu = spu;
+            _spu = spu;
 
             string[] targets = new string[] {"生活","咖啡","食器","乾貨","調味品","餐廚"};
             comboBoxCategory.Items.AddRange(targets);
@@ -94,8 +94,6 @@ namespace FormMain
 		{
 			try
 			{
-
-
 
 				//取值，第一步型別檢查及是否有輸入
 				string prodName = textBoxProdName.afiledValue;

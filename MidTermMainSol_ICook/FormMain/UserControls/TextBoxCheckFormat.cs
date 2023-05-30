@@ -40,6 +40,15 @@ namespace TextBoxAndTable
 			return isRight;
 		}
 
+        /// <summary>
+        /// 文字框變回正常型態
+        /// </summary>
+        public void ReturnDefault()
+        {
+            panel1.Visible = false;
+            label2.Visible = false;
+        }
 
-	}
+
+    }
 }

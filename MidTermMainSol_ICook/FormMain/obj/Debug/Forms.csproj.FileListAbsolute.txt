@@ -132,7 +132,6 @@ D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.exe
 D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.pdb
 D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormProductEdit.resources
 D:\CMidTerm\MidTermMainSol_ICook\FormMain\bin\Debug\Ado.Net.SqlDataLayer.dll
-D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSku.resources
 D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormProductCreate.resources
 C:\CMidTerm\MidTermMainSol_ICook\FormMain\bin\Debug\FormMain.exe.config
 C:\CMidTerm\MidTermMainSol_ICook\FormMain\bin\Debug\FormMain.exe
@@ -165,3 +164,5 @@ C:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.exe
 C:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.pdb
 C:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSkuForCreateProduct.resources
 C:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSkuForEditProduct.resources
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSkuForCreateProduct.resources
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSkuForEditProduct.resources
