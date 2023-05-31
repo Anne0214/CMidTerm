@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -252,6 +253,18 @@ Values (@spu,@sku,@typeName,@stockNumber,@soldNumber)";
 
 
 
+		}
+        public ProductDetailDto GetByName(string productName)
+        {
+			string sql = @"Select [SPU],[img],[ON_SHELF上架狀態],[CATEGORY商品分類名稱],[PRODUCT_NAME商品名稱],[PRODUCT_DESCRIPTION簡短商品說明],[FULL_PRODUCT_DESCRIPTION完整說明圖片],[PURCHASE_PRICE採購價],[TAG_PRICE吊牌價],[SALE_PRICE銷售價]
+From [dbo].[PRODUCT_SPU_商品]
+Where [PRODUCT_NAME商品名稱] = @name"; 
+			SqlParameter[] parameters = new SqlParameterBuilder()
+											.AddNVarchar("@name", 100, productName)
+											.Build();
+			Func<SqlDataReader, ProductDetailDto> productAssembler = Assembler.ProductDetailDtoAssembler;
+			Func<SqlConnection> conn = SqlDb.GetConnection;
+            return SqlDb.Get<ProductDetailDto>(conn, sql, productAssembler, parameters);
 		}
     }
 }

@@ -8,6 +8,7 @@ namespace FormMain
 {
 	public interface IExportCSV
 	{
-		string[] Columns { get; set; }
+		void success();
+
 	}
 }

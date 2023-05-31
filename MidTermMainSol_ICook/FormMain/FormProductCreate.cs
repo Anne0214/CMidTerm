@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Policy;
@@ -34,100 +35,46 @@ namespace FormMain
 
 		}
 
-        /// <summary>
-        /// 檢查價格是否整數且不為0，若違反則會讓文字框顯示錯誤
-        /// </summary>
-        /// <param name="textBox"></param>
-        /// <param name="price"></param>
-        /// <returns></returns>
-        public bool CheckPrice(TextBoxEditable textBox, out int price)
-        {
-            if (!(int.TryParse(textBox.afiledValue, out int num)) || num==0)
-            {
-                textBox.Error("請輸入大於0數字");
-                price = 0;
-                return true;
-            }
-            else
-            {
-                price = num;
-                textBox.ReturnDefault();
-                return false;
-            }
-        }
-        public bool CheckString(TextBoxEditable textBox,out string value)
-        {
-            if (string.IsNullOrEmpty(textBox.afiledValue))
-            {
-                textBox.Error();
-                value = string.Empty;
-                return true;
-            }
-            else
-            {
-                textBox.ReturnDefault();
-                value=textBox.afiledValue;
-                return false;
-            }
-        }
-        public bool CheckString(TextBoxWordLimit textBox, out string value)
-        {
-            if (string.IsNullOrEmpty(textBox.afiledValue))
-            {
-                textBox.Error();
-                value = string.Empty;
-                return true;
-            }
-            else
-            {
-                textBox.ReturnDefault();
-                value = textBox.afiledValue;
-                return false;
-            }
-        }
-        public bool CheckString(TextBoxMultiline textBox, out string value)
-        {
-            if (string.IsNullOrEmpty(textBox.afiledValue))
-            {
-                textBox.Error();
-                value = string.Empty;
-                return true;
-            }
-            else
-            {
-                textBox.ReturnDefault();
-                value = textBox.afiledValue;
-                return false;
-            }
-        }
+        
         private void buttonSave_Click(object sender, EventArgs e)
         {
             //存放各項是否有錯，最後檢查
             List<bool> errors = new List<bool>();
-
+            bool hasError = false;
 
             //取值: 1.檢查是否都有填 2. 檢查型別是否正確
             string prodName = string.Empty;
-            errors.Add(CheckString(textBoxProdName, out prodName));
-            
-            var imgSave = new ImageUpload();
+            hasError = CheckInput.CheckString(textBoxProdName, out prodName);
+			errors.Add(hasError);
 
-            errorFullDescription.Visible = string.IsNullOrEmpty(FullDescriptionFilePath);
-            errors.Add(string.IsNullOrEmpty(FullDescriptionFilePath));
+			//檢查產品名稱是否重複
+			var repo = new ProductRepositories();
+            var dto = repo.GetByName(prodName);
+            if(dto != null)
+            {
+                textBoxProdName.Error("產品名稱重複，請重新取名");
+                errors.Add(false);
+            }
+
+			var imgSave = new ImageUpload();
+
+            hasError = string.IsNullOrEmpty(FullDescriptionFilePath);
+			errorFullDescription.Visible = hasError;
+            errors.Add(hasError);
 
             FullDescriptionFilePath = string.IsNullOrEmpty(FullDescriptionFilePath) ?
                                             FullDescriptionFilePath : imgSave.SaveImage(FullDescriptionFilePath);
 
-
-            ErrorCover.Visible = string.IsNullOrEmpty(CoverFilePath);
-            errors.Add(string.IsNullOrEmpty(CoverFilePath));
+            hasError = string.IsNullOrEmpty(CoverFilePath);
+			ErrorCover.Visible = hasError;
+            errors.Add(hasError);
 
             CoverFilePath = string.IsNullOrEmpty(CoverFilePath) ?
                                 CoverFilePath : imgSave.SaveImage(CoverFilePath);
 
 
             string shortIntro = string.Empty;
-            errors.Add(CheckString(textBoxProdDescription, out shortIntro));
+            errors.Add(CheckInput.CheckString(textBoxProdDescription, out shortIntro));
           
             
             string onShelf = String.Empty;
@@ -143,23 +90,25 @@ namespace FormMain
             {
                 onShelf = "2";
             }
-            errorOnShelf.Visible = string.IsNullOrEmpty(onShelf);
-            errors.Add(string.IsNullOrEmpty(onShelf));
+            hasError = string.IsNullOrEmpty(onShelf);
+			errorOnShelf.Visible = hasError;
+            errors.Add(hasError);
 
-
-            string category = comboBoxCategory.SelectedItem.ToString();
-            errorCategory.Visible = string.IsNullOrEmpty(category);
-            errors.Add(string.IsNullOrEmpty(category));
+            
+			string category = comboBoxCategory.SelectedItem.ToString();
+			hasError = string.IsNullOrEmpty(category);
+			errorCategory.Visible = hasError;
+            errors.Add(hasError);
 
 
             int purchasePrice = 0;
-            errors.Add(CheckPrice(textBoxPurchasePrice,out purchasePrice));
+            errors.Add(CheckInput.CheckPrice(textBoxPurchasePrice,out purchasePrice));
 
             int tagPrice = 0;
-            errors.Add(CheckPrice(textBoxTagPrice, out tagPrice));
+            errors.Add(CheckInput.CheckPrice(textBoxTagPrice, out tagPrice));
 
             int salePrice = 0;
-            errors.Add(CheckPrice(textBoxSalePrice, out salePrice));
+            errors.Add(CheckInput.CheckPrice(textBoxSalePrice, out salePrice));
 
             //檢查: tagPrice>salePrice>purchasePrice
             if(tagPrice != 0 && salePrice != 0) //標籤價、銷售價
@@ -204,18 +153,18 @@ namespace FormMain
             {
                 string typeName = i.SubItems[1].Text;
                 int stockNumber = int.Parse(i.SubItems[2].Text);
-                var dto = new SkuDto()
+                var skuDto = new SkuDto()
                 {
                     TypeName = typeName,
                     StockNumber = stockNumber,
                     SoldNumber = 0
                 };
-                skuDtos.Add(dto);
+                skuDtos.Add(skuDto);
             }
             try
             {
                 //存到資料庫
-                var repo = new ProductRepositories();
+                //var repo = new ProductRepositories();
                 repo.Create(productDto, skuDtos);
                 INotify frm = this.Owner as INotify;
                 frm.Success("新增成功");

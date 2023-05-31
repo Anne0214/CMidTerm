@@ -96,27 +96,53 @@ namespace FormMain
 			{
 
 				//取值，第一步型別檢查及是否有輸入
-				string prodName = textBoxProdName.afiledValue;
+				List<bool> errors = new List<bool>();
+				bool hasError = false;
+
+				//取值: 1.檢查是否都有填 2. 檢查型別是否正確
+				string prodName = string.Empty;
+				hasError = CheckInput.CheckString(textBoxProdName, out prodName);
+				errors.Add(hasError);
+
+				//檢查產品名稱是否重複
+				var repo = new ProductRepositories();
+				var dto = repo.GetByName(prodName);
+				if (dto != null)
+				{
+					textBoxProdName.Error("產品名稱重複，請重新取名");
+					errors.Add(false);
+				}
+
+
 				var imgSave = new ImageUpload();
-				string fullDescription_newPath = String.Empty;
-				string cover_newPath = String.Empty;
+
+				//完整描述沒放圖
+				hasError = string.IsNullOrEmpty(FullDescriptionFilePath);
+				errorFullDescriptionFilePath.Visible = hasError;
+				errors.Add(hasError);
+
+				//完整描述使用網址圖片
 				if (!FullDescriptionFilePath.Contains("http"))
 				{
-					fullDescription_newPath = imgSave.SaveImage(FullDescriptionFilePath);
-				}else{
-					fullDescription_newPath = FullDescriptionFilePath;
+					FullDescriptionFilePath = imgSave.SaveImage(FullDescriptionFilePath);
 				}
+
+				//沒放封面圖
+				hasError = string.IsNullOrEmpty(CoverFilePath);
+				errorCover.Visible = hasError;
+				errors.Add(hasError);
+
+				//封面圖使用網址的圖片
 				if (!CoverFilePath.Contains("http"))
 				{
-					cover_newPath = imgSave.SaveImage(CoverFilePath);
+					CoverFilePath = imgSave.SaveImage(CoverFilePath);
 				}
-				else{
-					cover_newPath = CoverFilePath;
-				}
-				
-				
-				string shortIntro = textBoxProdDescription.afiledValue;
-				//string fullIntro = textBoxFullProdDescription.afiledValue;
+
+
+
+				string shortIntro = string.Empty;
+				errors.Add(CheckInput.CheckString(textBoxProdDescription, out shortIntro));
+
 
 				string onShelf = String.Empty;
 				if (radioButtonOn.Checked)
@@ -131,34 +157,54 @@ namespace FormMain
 				{
 					onShelf = "2";
 				}
+				hasError = string.IsNullOrEmpty(onShelf);
+				errorOnShelf.Visible = hasError;
+				errors.Add(hasError);
 
 				string category = comboBoxCategory.SelectedItem.ToString();
+				hasError = string.IsNullOrEmpty(category);
+				errorCategory.Visible = hasError;
+				errors.Add(hasError);
 
 				int purchasePrice = 0;
-				if (int.TryParse(textBoxPurchasePrice.afiledValue, out int number))
-				{
-					purchasePrice = number;
-				}
+				errors.Add(CheckInput.CheckPrice(textBoxPurchasePrice, out purchasePrice));
 
 				int tagPrice = 0;
-				if (int.TryParse(textBoxTagPrice.afiledValue, out number))
-				{
+				errors.Add(CheckInput.CheckPrice(textBoxTagPrice, out tagPrice));
 
-					tagPrice = number;
-				}
 				int salePrice = 0;
-				if (int.TryParse(textBoxSalePrice.afiledValue, out number))
+				errors.Add(CheckInput.CheckPrice(textBoxSalePrice, out salePrice));
+
+				//檢查: tagPrice>salePrice>purchasePrice
+				if (tagPrice != 0 && salePrice != 0) //標籤價、銷售價
 				{
-					salePrice = number;
+					if (tagPrice > salePrice && salePrice > purchasePrice)
+					{
+						errors.Add(false);
+						textBoxSalePrice.ReturnDefault();
+						textBoxTagPrice.ReturnDefault();
+
+					}
+					else
+					{
+						textBoxPurchasePrice.Error("銷售價應大於進貨價，小於標籤價");
+						textBoxTagPrice.Error("標籤價應大於進貨價、銷售價");
+						textBoxSalePrice.Error("銷售價應小於進貨價、標籤價");
+					}
 				}
 
-			//建prductDto
+
+				//以上驗證條件有一項未通過，不可以開始創建程序
+				if (errors.Any(x => x = true)) return;
+
+
+				//建prductDto
 				var productDto = new ProductDetailDto()
 				{
 					Spu = _spu,
 					ProductName = prodName,
-					Cover = cover_newPath,
-					FullProductDescription = fullDescription_newPath,
+					Cover = CoverFilePath,
+					FullProductDescription = FullDescriptionFilePath,
 					OnShelf = onShelf,
 					ProductDescription = shortIntro,
 					Category = category,
@@ -176,18 +222,18 @@ namespace FormMain
 					int stockNumber = int.Parse(i.SubItems[3].Text);
 					int soldNumber = int.Parse(i.SubItems[4].Text);
 
-					var dto = new SkuDto()
+					var skuDto = new SkuDto()
 					{
 						TypeName = typeName,
 						StockNumber = stockNumber,
 						SoldNumber = soldNumber
 					};
-					skuDtos.Add(dto);
+					skuDtos.Add(skuDto);
 				}
 
 
 				//呼叫修改的方法
-				var repo = new ProductRepositories();
+				repo = new ProductRepositories();
 				repo.Update(productDto, skuDtos);
 			}
 			catch (Exception ex)
@@ -243,7 +289,7 @@ namespace FormMain
 		{
 			if (listViewSku.Items.Count <= 1)
 			{
-				MessageBox.Show("無法刪除，因為每個商品都會有至少一個型號");
+				MessageBox.Show("無法刪除，因為每個商品必須至少一個型號");
 				return;
 			}
 			ListViewItem item = listViewSku.SelectedItems[0];

@@ -14,24 +14,28 @@ namespace FormMain
 {
 	public partial class FormExportCSV<T> : Form
 	{
-        private String[] _ColumnOptions { get; set; }//todo 改成enum，跟欄位對應
+		/// <summary>
+		/// 欄位名稱(中文)跟屬性名稱的配對。這樣才能知道用戶選的欄位對應到哪些屬性。
+		/// </summary>
+		private Dictionary<string, string> _columnPropertyPair;
+
+		/// <summary>
+		/// 用戶選中的資料的dto
+		/// </summary>
 		private List<T> _SelectedData { get; set; }
  
 
-        /// <summary>
-        /// 需定義可選欄位包含哪些，將會在視窗載入時成為可選欄位的內容
-        /// </summary>
-        /// <param name="columns">中文欄位名稱組成的Array</param>
-        public FormExportCSV(string[] columns, List<T> selectedData)
+        public FormExportCSV(Dictionary<string,string> ColumnPropertyPair, List<T> selectedData)
 		{
 			InitializeComponent();
-			_ColumnOptions = columns;
+			_columnPropertyPair = ColumnPropertyPair;
 			_SelectedData = selectedData;
 		}
 
 		private void FormExportCSV_Load(object sender, EventArgs e)
 		{
-			listBoxOption.Items.AddRange(_ColumnOptions);
+			var columnName = _columnPropertyPair.Keys.ToArray<String>();
+			listBoxOption.Items.AddRange(columnName);
 		}
 
 		private void buttonToRight_Click(object sender, EventArgs e)
@@ -80,40 +84,57 @@ namespace FormMain
 
 
 
-		public void ExportCsv<T>(string filePath)
+		public void ExportCsv(string filePath)
 		{
-
-			//拿被選中的欄位
-			List<String> column = new List<String>(); 
+			List<string> properties = new List<string>();
+			//整理出被選中的Property
 			foreach (var i in listBoxSelected.SelectedItems)
 			{
-
-
+				properties.Add(_columnPropertyPair[i.ToString()]);
 			}
+			//得到該dto所有屬性
+			Type t = typeof(T);
+			PropertyInfo[] propInfos = t.GetProperties(BindingFlags.Public);
+
+			//只留下有選中的property
+			
+			//取交集
+			var intersection = propInfos.Select(x => x.ToString()).ToList().Intersect(properties);
+			//取交集項目的位置
+			var indexs = intersection.Select(x => Array.IndexOf(propInfos,x));
+			//篩選propInfos
+			propInfos = propInfos.Where((x, i) => indexs.Contains(i)).ToArray();
+
 			using (var file = new StreamWriter(filePath))
 			{
-				Type t = typeof(T);
-				PropertyInfo[] propInfos = t.GetProperties(BindingFlags.Public); //得到該dto的所有屬性
-				
 				//輸出屬性名稱，作為欄位
-				file.WriteLineAsync(string.Join(",", propInfos.Select(i => i.Name)));
+				file.WriteLineAsync(string.Join(",", properties));
 
 				foreach (var item in _SelectedData)
 				{
 					file.WriteLineAsync(string.Join(",", propInfos.Select(i => i.GetValue(item)))); //組成csv文字
 				}
-			}
+			};
 		}
 
 
 
 		private void buttonExport_Click_1(object sender, EventArgs e)
-		{ //todo等之後再寫完
+		{ 
 			SaveFileDialog dialog = new SaveFileDialog();
 			string filePath = dialog.FileName;
 
+			try
+			{
+				ExportCsv(filePath);
+			}
+			catch { 
+				MessageBox.Show("輸出失敗，請稍後再試"); 
+			}
+
 			//輸出儲存完畢後通知
-			IExportCSV frm = this.Parent as IExportCSV;
+			IExportCSV frm = this.Owner as IExportCSV;
+			frm.success();
 
 		}
 
