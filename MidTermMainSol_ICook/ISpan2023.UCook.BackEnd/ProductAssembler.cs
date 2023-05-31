@@ -105,5 +105,49 @@ namespace ISpan2023.UCook.BackEnd
                 return func;
             }
         }
+        public static Func<SqlDataReader,ProductCSVDto> ProductCSVDtoAssembler
+        {
+            get
+            {
+                Func<SqlDataReader, ProductCSVDto> func = (reader) =>
+                {
+                    string Cover = reader.GetString("img");
+                    string Category = reader.GetString("CATEGORY商品分類名稱");
+                    string Spu = reader.GetString("SPU");
+                    string ProductName = reader.GetString("PRODUCT_NAME商品名稱");
+
+                    //0:待上架,1:上架中,2:封存
+                    string OnShelf = reader.GetString("ON_SHELF上架狀態");
+                    int PurchasePrice = reader.GetInt("PURCHASE_PRICE採購價");
+                    int TagPrice = reader.GetInt("TAG_PRICE吊牌價");
+                    int SalePrice = reader.GetInt("SALE_PRICE銷售價");
+                    string ProductDescription = reader.GetString("PRODUCT_DESCRIPTION簡短商品說明");
+                    string FullProductDescription = reader.GetString("FULL_PRODUCT_DESCRIPTION完整說明圖片");
+                    string Sku = reader.GetString("SKU");
+                    string TypeName = reader.GetString("TYPE_NAME型號");
+                    int StockNumber = reader.GetInt("STOCK_NUMBER庫存數量");
+                    int SoldNumber = reader.GetInt("SOLD_NUMBER已售出數量");
+
+                    return new ProductCSVDto
+                    {
+                        Cover = Cover,
+                        Category = Category,
+                        FullProductDescription = FullProductDescription,
+                        OnShelf = OnShelf,
+                        ProductDescription = ProductDescription,
+                        ProductName = ProductName,
+                        PurchasePrice = PurchasePrice,
+                        SalePrice = SalePrice,
+                        Sku = Sku,
+                        SoldNumber = SoldNumber,
+                        Spu = Spu,
+                        StockNumber = StockNumber,
+                        TagPrice = TagPrice,
+                        TypeName = TypeName,
+                    };
+                };
+                return func;
+            }
+        }
     }
 }

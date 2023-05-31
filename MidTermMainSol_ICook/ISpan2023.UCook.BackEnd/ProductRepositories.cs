@@ -64,6 +64,58 @@ Group By a.SPU,[ON_SHELF上架狀態],[CATEGORY商品分類名稱],[PRODUCT_NAME
             return SqlDb.Search<ProductSearchDto>(conn, sql, func, parameter).ToList();
             
         }
+        public IEnumerable<ProductCSVDto> GetDetailBySpu(List<string> spus)
+        {
+            StringBuilder sqlBuild = new StringBuilder(@"Select a.[SPU]
+      ,[img]
+      ,[ON_SHELF上架狀態]
+      ,[CATEGORY商品分類名稱]
+      ,[PRODUCT_NAME商品名稱]
+      ,[PRODUCT_DESCRIPTION簡短商品說明]
+      ,[FULL_PRODUCT_DESCRIPTION完整說明圖片]
+      ,[PURCHASE_PRICE採購價]
+      ,[TAG_PRICE吊牌價]
+      ,[SALE_PRICE銷售價]
+      ,[SKU]
+      ,[TYPE_NAME型號]
+      ,[STOCK_NUMBER庫存數量]
+      ,[SOLD_NUMBER已售出數量]
+From [dbo].[PRODUCT_SPU_商品] as a
+Join [dbo].[PRODUCT_SKU_商品] as b
+on a.[SPU] = b.SPU
+Where a.[SPU] in (");
+
+
+            foreach(var i in spus)
+            {
+                sqlBuild.Append(@"'");
+                sqlBuild.Append(i);
+                sqlBuild.Append(@"'");
+                sqlBuild.Append(@",");
+            }
+            string sql = sqlBuild.ToString();
+            sql = sql.Substring(0, sql.Length - 1);
+            sql += @")"; 
+
+            using (SqlConnection conn = SqlDb.GetConnection())
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = sql;
+
+                    SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    while (reader.Read() == true)
+                    {
+                        yield return Assembler.ProductCSVDtoAssembler(reader);
+                    }
+
+                }
+            }
+
+        }
         public (List<SkuDto>,ProductDetailDto) GetBySpu(string spu)
         {
             Func < SqlConnection > conn = SqlDb.GetConnection;

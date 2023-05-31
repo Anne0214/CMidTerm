@@ -122,19 +122,24 @@ namespace FormMain
 		private void buttonExport_Click_1(object sender, EventArgs e)
 		{ 
 			SaveFileDialog dialog = new SaveFileDialog();
+			dialog.Filter ="CSV Files (.csv)|*.csv|All Files (*.*)|*.*";
+			dialog.Title = "請選擇csv檔案的儲存位置";
+
+			dialog.ShowDialog();
 			string filePath = dialog.FileName;
 
-			try
-			{
-				ExportCsv(filePath);
-			}
-			catch { 
-				MessageBox.Show("輸出失敗，請稍後再試"); 
-			}
+            ExportCsv(filePath);
+   //         try
+			//{
+				
+			//}
+			//catch { 
+			//	MessageBox.Show("輸出失敗，請稍後再試"); 
+			//}
 
 			//輸出儲存完畢後通知
-			IExportCSV frm = this.Owner as IExportCSV;
-			frm.success();
+			INotify frm = this.Owner as INotify;
+			frm.Success("輸出成功");
 
 		}
 

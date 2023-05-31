@@ -151,6 +151,48 @@ namespace FormMain
                 frm.Owner = this;
                 frm.Show();
             }
+
+            bool isAnyRowChecked = false;
+            
+            // 檢查是否第一欄是CheckBox列
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                // 取得選取的CheckBox單元格
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)dataGridView1.Rows[e.RowIndex].Cells[0];
+
+                // 切換CheckBox的值
+                checkBoxCell.Value = !(checkBoxCell.Value == null || !(bool)checkBoxCell.Value);
+
+                // 判斷CheckBox是否被勾選
+
+                if ((bool)checkBoxCell.Value)
+                {
+                    // CheckBox未勾選，取消選取整列
+                    dataGridView1.Rows[e.RowIndex].Selected = false;
+                    checkBoxCell.Value = false;
+                }
+                else
+                {
+                    // CheckBox已勾選，則選取整列
+                    dataGridView1.Rows[e.RowIndex].Selected = true;
+                    checkBoxCell.Value = true;
+                }
+            }
+            // 檢查是否有任何資料列被勾選
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
+
+                if (checkBoxCell.Value != null && (bool)checkBoxCell.Value)
+                {
+                    isAnyRowChecked = true;
+                    break;
+                }
+            }
+
+            // 根據是否有資料列被勾選來設定Button的Enable屬性
+            buttonCSV.Enabled = isAnyRowChecked;
+
         }
 
 		private void buttonAddNewProduct_Click(object sender, EventArgs e)
@@ -159,5 +201,105 @@ namespace FormMain
 			frm.Owner = this;
 			frm.Show();
 		}
-	}
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (e.Button == MouseButtons.Left) // 只處理滑鼠左键點擊事件
+            {
+                if (e.RowIndex == -1) // 確保點擊標題
+                {
+                    DataGridViewColumn clickedColumn = dataGridView1.Columns[e.ColumnIndex];
+
+                    StringBuilder rowValues = new StringBuilder();
+
+                    // 獲取每格的值
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        DataGridViewCell cell = row.Cells[e.ColumnIndex];
+
+                        //如果value!=null,用ToString();如為null,用string.Empty
+                        string cellValue = cell.Value?.ToString() ?? string.Empty;
+                        rowValues.AppendLine(cellValue);
+                    }
+
+                    // 將值複製到剪貼版
+                    Clipboard.SetText(rowValues.ToString());
+                    MessageBox.Show("已複製");
+                }
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) // 只處理滑鼠左键點擊事件
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // 確認不是點擊標題行
+                {
+                    DataGridViewCell clickedCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                    //如果value!=null,用ToString();如為null,用string.Empty
+                    string cellValue = clickedCell.Value?.ToString() ?? string.Empty;
+
+                    if (!string.IsNullOrEmpty(cellValue)) //不是null或空字串才複製
+                    {
+                        // 將值複製到剪貼版
+                        Clipboard.SetText(cellValue);
+
+                    }
+                    return;
+
+                }
+            }
+        }
+
+        private void buttonCSV_Click(object sender, EventArgs e)
+        {
+            //找到被勾選的列，存spu
+            List<string> spus = new List<string>(); 
+            int count = dataGridView1.RowCount;
+
+            for(int i =0; i < count; i++)
+            {
+                DataGridViewCell selectedRow = dataGridView1.Rows[i].Cells[0];
+                bool flag = Convert.ToBoolean(selectedRow.Value);
+                if(flag)
+                {
+                    spus.Add(dataGridView1.Rows[i].Cells[2].Value.ToString());
+
+                }
+            }
+
+            //取得資料
+            List<ProductCSVDto> dtos = new List<ProductCSVDto>();
+            var repo = new ProductRepositories();
+            dtos = repo.GetDetailBySpu(spus).ToList();
+
+            //產出我的dict
+            Dictionary<string, string> pairs = new Dictionary<string, string>()
+            {
+                { "產品圖片","Cover"},
+                {"產品分類","Category"},
+                { "SPU","Spu"},
+                { "產品名稱","ProductName"},
+                { "上架狀態","OnShelf"},
+                { "進貨價","PurchasePrice"},
+                { "標籤價","TagPrice"},
+                { "銷售價","SalePrice"},
+                { "商品描述","ProductDescription"},
+                { "商品完整描述","FullProductDescription"},
+                { "SKU","Sku"},
+                { "型號名稱","TypeName"},
+                { "庫存數量","StockNumber"},
+                { "售出數量","SoldNumber"},
+
+            };
+
+            //開啟FormCSV，指定為owner
+            FormExportCSV<ProductCSVDto> frm = new FormExportCSV<ProductCSVDto>(pairs, dtos);
+            frm.Owner = this;
+            frm.ShowDialog();
+
+        }
+    }
 }
