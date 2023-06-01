@@ -17,8 +17,8 @@ namespace FormMain
         public FormSkuForCreateProduct(bool isNew,string typeName, string stockNumber)
         {	//本視窗給新增商品視窗使用
 			InitializeComponent();
-
-            //新增sku情況下isNew為true，修改則為false
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(213)))), ((int)(((byte)(230)))));
+			//新增sku情況下isNew為true，修改則為false
 			buttonConfirm.Text = isNew ? "新增" : "確認";
 
 			//將資料放入文字框

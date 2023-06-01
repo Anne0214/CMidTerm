@@ -225,7 +225,7 @@ namespace FormMain
 
                     // 將值複製到剪貼版
                     Clipboard.SetText(rowValues.ToString());
-                    MessageBox.Show("已複製");
+                    Success("複製成功");
                 }
             }
         }
@@ -245,8 +245,9 @@ namespace FormMain
                     {
                         // 將值複製到剪貼版
                         Clipboard.SetText(cellValue);
+						Success("複製成功");
 
-                    }
+					}
                     return;
 
                 }

@@ -42,7 +42,6 @@
 			this.textBoxStockNumber.Name = "textBoxStockNumber";
 			this.textBoxStockNumber.Size = new System.Drawing.Size(650, 40);
 			this.textBoxStockNumber.TabIndex = 2;
-		
 			// 
 			// buttonConfirm
 			// 
@@ -79,7 +78,6 @@
 			this.textBoxTypeName.Name = "textBoxTypeName";
 			this.textBoxTypeName.Size = new System.Drawing.Size(650, 40);
 			this.textBoxTypeName.TabIndex = 5;
-	
 			// 
 			// FormSkuForCreateProduct
 			// 
@@ -92,6 +90,7 @@
 			this.Controls.Add(this.textBoxStockNumber);
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "FormSkuForCreateProduct";
+			this.Text = "SKU";
 			this.ResumeLayout(false);
 
         }

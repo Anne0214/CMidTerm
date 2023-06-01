@@ -70,7 +70,7 @@
 			// pictureBoxCover
 			// 
 			this.pictureBoxCover.Location = new System.Drawing.Point(85, 37);
-			this.pictureBoxCover.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBoxCover.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBoxCover.Name = "pictureBoxCover";
 			this.pictureBoxCover.Size = new System.Drawing.Size(233, 233);
 			this.pictureBoxCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -93,7 +93,7 @@
 			this.comboBoxCategory.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.comboBoxCategory.FormattingEnabled = true;
 			this.comboBoxCategory.Location = new System.Drawing.Point(85, 295);
-			this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxCategory.Name = "comboBoxCategory";
 			this.comboBoxCategory.Size = new System.Drawing.Size(189, 28);
 			this.comboBoxCategory.TabIndex = 19;
@@ -126,7 +126,7 @@
 			this.panelOnShelf.Controls.Add(this.radioButtonOff);
 			this.panelOnShelf.Controls.Add(this.radioButtonOn);
 			this.panelOnShelf.Location = new System.Drawing.Point(116, 327);
-			this.panelOnShelf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panelOnShelf.Margin = new System.Windows.Forms.Padding(2);
 			this.panelOnShelf.Name = "panelOnShelf";
 			this.panelOnShelf.Size = new System.Drawing.Size(278, 37);
 			this.panelOnShelf.TabIndex = 20;
@@ -136,7 +136,7 @@
 			this.radioButtonUnavailable.AutoSize = true;
 			this.radioButtonUnavailable.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.radioButtonUnavailable.Location = new System.Drawing.Point(210, 9);
-			this.radioButtonUnavailable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.radioButtonUnavailable.Margin = new System.Windows.Forms.Padding(2);
 			this.radioButtonUnavailable.Name = "radioButtonUnavailable";
 			this.radioButtonUnavailable.Size = new System.Drawing.Size(59, 24);
 			this.radioButtonUnavailable.TabIndex = 6;
@@ -149,7 +149,7 @@
 			this.radioButtonOff.AutoSize = true;
 			this.radioButtonOff.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.radioButtonOff.Location = new System.Drawing.Point(113, 11);
-			this.radioButtonOff.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.radioButtonOff.Margin = new System.Windows.Forms.Padding(2);
 			this.radioButtonOff.Name = "radioButtonOff";
 			this.radioButtonOff.Size = new System.Drawing.Size(59, 24);
 			this.radioButtonOff.TabIndex = 6;
@@ -162,7 +162,7 @@
 			this.radioButtonOn.AutoSize = true;
 			this.radioButtonOn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.radioButtonOn.Location = new System.Drawing.Point(13, 9);
-			this.radioButtonOn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.radioButtonOn.Margin = new System.Windows.Forms.Padding(2);
 			this.radioButtonOn.Name = "radioButtonOn";
 			this.radioButtonOn.Size = new System.Drawing.Size(75, 24);
 			this.radioButtonOn.TabIndex = 6;
@@ -195,7 +195,7 @@
 			this.listViewSku.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
 			this.listViewSku.Location = new System.Drawing.Point(36, 470);
-			this.listViewSku.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.listViewSku.Margin = new System.Windows.Forms.Padding(2);
 			this.listViewSku.Name = "listViewSku";
 			this.listViewSku.Size = new System.Drawing.Size(439, 141);
 			this.listViewSku.TabIndex = 28;
@@ -359,7 +359,7 @@
 			this.textBoxFullProdDescription.afiledName = "長說明(圖片)";
 			this.textBoxFullProdDescription.afiledValue = "";
 			this.textBoxFullProdDescription.Location = new System.Drawing.Point(36, 1002);
-			this.textBoxFullProdDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.textBoxFullProdDescription.Margin = new System.Windows.Forms.Padding(4);
 			this.textBoxFullProdDescription.Name = "textBoxFullProdDescription";
 			this.textBoxFullProdDescription.Size = new System.Drawing.Size(650, 40);
 			this.textBoxFullProdDescription.TabIndex = 33;
@@ -370,7 +370,7 @@
 			this.textBoxProdDescription.afiledName = "簡短說明";
 			this.textBoxProdDescription.afiledValue = "rgrgrgrgdcdgrgrgr";
 			this.textBoxProdDescription.Location = new System.Drawing.Point(32, 782);
-			this.textBoxProdDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.textBoxProdDescription.Margin = new System.Windows.Forms.Padding(4);
 			this.textBoxProdDescription.Name = "textBoxProdDescription";
 			this.textBoxProdDescription.Size = new System.Drawing.Size(823, 215);
 			this.textBoxProdDescription.TabIndex = 32;
@@ -380,7 +380,7 @@
 			this.textBoxTagPrice.afiledName = "標籤價";
 			this.textBoxTagPrice.afiledValue = "56";
 			this.textBoxTagPrice.Location = new System.Drawing.Point(32, 678);
-			this.textBoxTagPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.textBoxTagPrice.Margin = new System.Windows.Forms.Padding(4);
 			this.textBoxTagPrice.Name = "textBoxTagPrice";
 			this.textBoxTagPrice.Size = new System.Drawing.Size(917, 40);
 			this.textBoxTagPrice.TabIndex = 31;
@@ -390,7 +390,7 @@
 			this.textBoxSalePrice.afiledName = "銷售價";
 			this.textBoxSalePrice.afiledValue = "56";
 			this.textBoxSalePrice.Location = new System.Drawing.Point(32, 734);
-			this.textBoxSalePrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.textBoxSalePrice.Margin = new System.Windows.Forms.Padding(4);
 			this.textBoxSalePrice.Name = "textBoxSalePrice";
 			this.textBoxSalePrice.Size = new System.Drawing.Size(726, 40);
 			this.textBoxSalePrice.TabIndex = 29;
@@ -400,7 +400,7 @@
 			this.textBoxPurchasePrice.afiledName = "採購價";
 			this.textBoxPurchasePrice.afiledValue = "56";
 			this.textBoxPurchasePrice.Location = new System.Drawing.Point(32, 627);
-			this.textBoxPurchasePrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.textBoxPurchasePrice.Margin = new System.Windows.Forms.Padding(4);
 			this.textBoxPurchasePrice.Name = "textBoxPurchasePrice";
 			this.textBoxPurchasePrice.Size = new System.Drawing.Size(888, 40);
 			this.textBoxPurchasePrice.TabIndex = 30;
@@ -411,7 +411,7 @@
 			this.textBoxProdName.afiledName = "商品名稱";
 			this.textBoxProdName.afiledValue = "電風扇";
 			this.textBoxProdName.Location = new System.Drawing.Point(32, 373);
-			this.textBoxProdName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.textBoxProdName.Margin = new System.Windows.Forms.Padding(4);
 			this.textBoxProdName.Name = "textBoxProdName";
 			this.textBoxProdName.Size = new System.Drawing.Size(839, 40);
 			this.textBoxProdName.TabIndex = 21;
@@ -447,9 +447,9 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.panelOnShelf);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "FormProductCreate";
-			this.Text = "FormProductCreate";
+			this.Text = "新增商品";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
 			this.panelOnShelf.ResumeLayout(false);
 			this.panelOnShelf.PerformLayout();

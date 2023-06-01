@@ -87,28 +87,32 @@ namespace FormMain
 		public void ExportCsv(string filePath)
 		{
 			List<string> properties = new List<string>();
+			List<string> columnName = new List<string>();
 			//整理出被選中的Property
-			foreach (var i in listBoxSelected.SelectedItems)
+			foreach (var i in listBoxSelected.Items)
 			{
 				properties.Add(_columnPropertyPair[i.ToString()]);
+				columnName.Add(i.ToString());
 			}
 			//得到該dto所有屬性
 			Type t = typeof(T);
-			PropertyInfo[] propInfos = t.GetProperties(BindingFlags.Public);
+			PropertyInfo[] propInfos = t.GetProperties(); //BindingFlags.Public
 
 			//只留下有選中的property
-			
-			//取交集
-			var intersection = propInfos.Select(x => x.ToString()).ToList().Intersect(properties);
-			//取交集項目的位置
-			var indexs = intersection.Select(x => Array.IndexOf(propInfos,x));
-			//篩選propInfos
-			propInfos = propInfos.Where((x, i) => indexs.Contains(i)).ToArray();
 
-			using (var file = new StreamWriter(filePath))
+			propInfos = propInfos.Where(x => properties.Contains(x.Name.ToString())).ToArray();
+			//以下是廢物code，想複雜了，留下給自己一個教訓QQ
+			//取交集
+			//var intersection = propInfos.Select(x => x.Name.ToString()).ToList().Intersect(properties);
+			//取交集項目的位置
+			//var indexs = intersection.Select(x => Array.IndexOf(propInfos,x));
+			//篩選propInfos
+			//propInfos = propInfos.Where((x, i) => indexs.Contains(i)).ToArray();
+
+			using (var file = new StreamWriter(filePath,false,Encoding.UTF8))
 			{
 				//輸出屬性名稱，作為欄位
-				file.WriteLineAsync(string.Join(",", properties));
+				file.WriteLineAsync(string.Join(",", columnName));
 
 				foreach (var item in _SelectedData)
 				{
@@ -128,19 +132,20 @@ namespace FormMain
 			dialog.ShowDialog();
 			string filePath = dialog.FileName;
 
-            ExportCsv(filePath);
-   //         try
-			//{
-				
-			//}
-			//catch { 
-			//	MessageBox.Show("輸出失敗，請稍後再試"); 
-			//}
+            
+			try
+			{
+				ExportCsv(filePath);
 
-			//輸出儲存完畢後通知
-			INotify frm = this.Owner as INotify;
-			frm.Success("輸出成功");
-
+				//輸出儲存完畢後通知
+				INotify frm = this.Owner as INotify;
+				frm.Success("輸出成功");
+				this.Close();
+			}
+			catch
+			{
+				MessageBox.Show("輸出失敗，請稍後再試");
+			}
 		}
 
 		private void buttonCancel_Click(object sender, EventArgs e)

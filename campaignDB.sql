@@ -1,4 +1,4 @@
-use [iSpanDataBaseICook]
+ㄌㄜuse [iSpanDataBaseICook]
 go
 
 Create Table [dbo].[AD_SPACE_IMPRESSION_LOG_廣告版面曝光紀錄] --記錄每條看過廣告的紀錄，比如大雄5/23 12:22看到了A廣告，就會在此表增加一個資料[A廣告,5/23 12:22,大雄的IP]

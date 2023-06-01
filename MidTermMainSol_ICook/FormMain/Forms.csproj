@@ -61,6 +61,18 @@
     <Compile Include="FormProductCreate.Designer.cs">
       <DependentUpon>FormProductCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRecipeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecipeEdit.Designer.cs">
+      <DependentUpon>FormRecipeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecipeSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecipeSearch.Designer.cs">
+      <DependentUpon>FormRecipeSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSkuForCreateProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +177,12 @@
     <Compile Include="ViewModels\SkuVM.cs" />
     <EmbeddedResource Include="FormProductCreate.resx">
       <DependentUpon>FormProductCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecipeEdit.resx">
+      <DependentUpon>FormRecipeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecipeSearch.resx">
+      <DependentUpon>FormRecipeSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSkuForCreateProduct.resx">
       <DependentUpon>FormSkuForCreateProduct.cs</DependentUpon>

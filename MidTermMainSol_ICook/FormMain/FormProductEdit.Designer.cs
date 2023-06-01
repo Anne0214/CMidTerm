@@ -465,7 +465,7 @@
 			this.Controls.Add(this.panel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Name = "FormProductEdit";
-			this.Text = "FormEdit";
+			this.Text = "編輯商品";
 			this.Load += new System.EventHandler(this.FormProductEdit_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

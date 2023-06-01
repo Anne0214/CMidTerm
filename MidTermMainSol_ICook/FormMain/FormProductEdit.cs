@@ -107,7 +107,7 @@ namespace FormMain
 				//檢查產品名稱是否重複
 				var repo = new ProductRepositories();
 				var dto = repo.GetByName(prodName);
-				if (dto != null)
+				if (dto.Spu != _spu && dto != null) //當我找到同名字的商品，且spu不相同，表示我取到跟其他商品一樣的名字，因此不可改成這個名字
 				{
 					textBoxProdName.Error("產品名稱重複，請重新取名");
 					errors.Add(false);
@@ -178,7 +178,7 @@ namespace FormMain
 				//檢查: tagPrice>salePrice>purchasePrice
 				if (tagPrice != 0 && salePrice != 0) //標籤價、銷售價
 				{
-					if (tagPrice > salePrice && salePrice > purchasePrice)
+					if (tagPrice >= salePrice && salePrice >= purchasePrice)
 					{
 						errors.Add(false);
 						textBoxSalePrice.ReturnDefault();

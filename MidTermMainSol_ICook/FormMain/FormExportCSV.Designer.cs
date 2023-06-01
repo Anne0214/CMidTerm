@@ -171,7 +171,7 @@
 			this.Controls.Add(this.listBoxSelected);
 			this.Controls.Add(this.listBoxOption);
 			this.Name = "FormExportCSV";
-			this.Text = "FormExportCSV";
+			this.Text = "輸出CSV檔案";
 			this.Load += new System.EventHandler(this.FormExportCSV_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
