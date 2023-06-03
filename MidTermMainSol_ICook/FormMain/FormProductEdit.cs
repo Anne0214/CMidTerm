@@ -121,7 +121,7 @@ namespace FormMain
 				errorFullDescriptionFilePath.Visible = hasError;
 				errors.Add(hasError);
 
-				//完整描述使用網址圖片
+				//完整描述使用非網址圖片
 				if (!FullDescriptionFilePath.Contains("http"))
 				{
 					FullDescriptionFilePath = imgSave.SaveImage(FullDescriptionFilePath);
@@ -132,7 +132,7 @@ namespace FormMain
 				errorCover.Visible = hasError;
 				errors.Add(hasError);
 
-				//封面圖使用網址的圖片
+				//封面圖使用非網址的圖片
 				if (!CoverFilePath.Contains("http"))
 				{
 					CoverFilePath = imgSave.SaveImage(CoverFilePath);

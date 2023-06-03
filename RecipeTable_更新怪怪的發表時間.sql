@@ -1,0 +1,34 @@
+Update [dbo].[RECIPE_食譜]
+Set [UPDATE_TIME更新時間] ='2021-12-27 13:33:46.869'
+Where [UPDATE_TIME更新時間] = '1900-01-01 00:00:00.000' 
+and [RECIPE食譜_PK] between 12345678 and 12346565
+
+
+Update [dbo].[RECIPE_食譜]
+Set [PUBLISHED_TIME發表時間] ='2021-12-27 13:33:46.869'
+Where [PUBLISHED_TIME發表時間] = '1900-01-01 00:00:00.000' 
+and [RECIPE食譜_PK] between 12345678 and 12346565
+
+Update [dbo].[RECIPE_食譜]
+Set [PUBLISHED_TIME出版時間] ='2021-12-27 13:33:46.869'
+Where [PUBLISHED_TIME出版時間]  = '1900-01-01 00:00:00.000' 
+and [RECIPE食譜_PK] between 12345678 and 12346565
+
+
+---第二段
+
+Update [dbo].[RECIPE_食譜]
+Set [UPDATE_TIME更新時間] ='2023-04-14 20:19:57.293'
+Where [UPDATE_TIME更新時間] = '1900-01-01 00:00:00.000' 
+and [RECIPE食譜_PK] between 12346565 and 12347439
+
+
+Update [dbo].[RECIPE_食譜]
+Set [PUBLISHED_TIME發表時間] ='2023-04-14 20:19:57.293'
+Where [PUBLISHED_TIME發表時間] = '1900-01-01 00:00:00.000' 
+and [RECIPE食譜_PK] between 12346565 and 12347439
+
+Update [dbo].[RECIPE_食譜]
+Set [PUBLISHED_TIME出版時間] ='2023-04-14 20:19:57.293'
+Where [PUBLISHED_TIME出版時間]  = '1900-01-01 00:00:00.000' 
+and [RECIPE食譜_PK] between 12346565 and 12347439

@@ -166,3 +166,10 @@ C:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSkuForCreatePro
 C:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSkuForEditProduct.resources
 D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSkuForCreateProduct.resources
 D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormSkuForEditProduct.resources
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormRecipeEdit.resources
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\obj\Debug\FormMain.FormRecipeSearch.resources
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\bin\Debug\EntityFramework.dll
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\bin\Debug\EntityFramework.SqlServer.dll
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\bin\Debug\EntityFramework.xml
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\bin\Debug\EntityFramework.SqlServer.xml
+D:\CMidTerm\MidTermMainSol_ICook\FormMain\bin\Debug\zh-Hant\EntityFramework.resources.dll
