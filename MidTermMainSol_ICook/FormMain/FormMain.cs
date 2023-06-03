@@ -35,7 +35,10 @@ namespace FormMain
         }
 
         private void toolStripButtonRecipe_Click(object sender, EventArgs e)
-        {
+        {   
+            FormRecipeSearch frm = new FormRecipeSearch();
+            frm.MdiParent = this;
+            frm.Show();
             
         }
 

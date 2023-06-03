@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,62 +29,69 @@ namespace FormMain
 
         private void Display()
         {
-            //拿搜尋條件
-            string authorName = textBoxAuthorName.Text;
-            string authorPk = textBoxAuthorPk.Text;
-            string recipeName = textBoxRecipeName.Text;
+			//拿搜尋條件
+			string authorName = textBoxAuthorName.Text;
+			string authorPk = textBoxAuthorPk.Text;
+			string recipeName = textBoxRecipeName.Text;
 
 			int recipePK = 0;
-            if(int.TryParse(textBoxRecipePk.Text,out int num))
+			if (int.TryParse(textBoxRecipePk.Text, out int num))
 			{
 				recipePK = num;
 			}
-			else
-			{
-				MessageBox.Show("食譜PK請輸入6位數字");
-				return;
-			}
 
-            DateTime start = dateTimePickerStart.Value;
-            DateTime end = dateTimePickerEnd.Value;
+
+			DateTime start = dateTimePickerStart.Value;
+			DateTime end = dateTimePickerEnd.Value;
 
 			//拿取資料
-			var members = new AppDbContext().MEMBER_會員;
-			var data = new AppDbContext().RECIPE_食譜
-										.OrderByDescending(x => x.PUBLISHED_TIME發表時間)
-										.Join(members, r => r.AUTHOR_作者, m => m.MEMBER_ID會員_PK, (r, m) => m.NICK_NAME暱稱);
+			var db = new AppDbContext();
+            var result = (from r in db.RECIPE_食譜
+                          join m in db.MEMBER_會員 on r.AUTHOR_作者 equals m.MEMBER_ID會員_PK
+                          join c2 in db.CATEGORY_食譜分類_LEVEL_TWO on r.FEATURED_CATEGORY精選分類LEVEL_TWO equals c2.FEATURED_CATEGORY精選分類LEVEL_TWO_PK
+						  select new
+						  {
+                              RecipePk= r.RECIPE食譜_PK,
+							  RecipeName = r.RECIPE_NAME食譜名稱,
+							  AuthorPK = r.AUTHOR_作者,
+							  NickName = m.NICK_NAME暱稱,
+							  Category = c2.FEATURED_CATEGORY精選分類LEVEL_TWO_NAME名稱,
+							  PublishedTime = r.PUBLISHED_TIME發表時間
+                          });
+
 
 			if (!string.IsNullOrEmpty(authorName))
 			{
-				//待處理
-			}
+				result.Where(x => x.NickName.Contains(authorName));
+            }
 
-			if(!string.IsNullOrEmpty(authorPk))
+			if (!string.IsNullOrEmpty(authorPk))
 			{
-				data.Where(x => x.AUTHOR_作者 == authorPk);
+				result.Where(x => x.AuthorPK.Contains(authorPk));
 			}
 
 			if (!string.IsNullOrEmpty(recipeName))
 			{
-				data.Where(x => x.RECIPE_NAME食譜名稱 == recipeName);
+                result.Where(x => x.RecipeName.Contains(recipeName));
 			}
 
-			if(recipePK != 0)
+			if (recipePK != 0)
 			{
-				data.Where(x => x.RECIPE食譜_PK.Equals(recipePK));
+                result.Where(x => x.RecipePk.Equals(recipePK));
 			}
-			if(start != null)
-			{
-				data.Where(x => x.PUBLISHED_TIME發表時間 > start);
-			}
-			if(end != null)
-			{
-                data.Where(x => x.PUBLISHED_TIME發表時間 < end);
-            }
+			//if (start != null)
+			//{
+			//             result.Where(x => x.PublishedTime > start);
+			//}
+			//if (end != null)
+			//{
+			//             result.Where(x => x.PublishedTime < end);
+			//}
 
-            //最後整理
-    
-            dataGridView1.DataSource = data.ToList();
+			//最後整理
+			
+			dataGridView1.DataSource = result.ToList();
+            dataGridView1.Update();
 
         }
 
@@ -114,6 +122,11 @@ namespace FormMain
 
 
         private void buttonSearch_Click(object sender, EventArgs e)
+        {
+			Display();
+        }
+
+        private void FormRecipeSearch_Load(object sender, EventArgs e)
         {
 			Display();
         }
