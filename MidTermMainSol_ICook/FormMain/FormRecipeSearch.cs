@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace FormMain
 {
-	public partial class FormRecipeSearch : Form
+	public partial class FormRecipeSearch : Form,INotify
 	{
 		public FormRecipeSearch()
 		{
 			InitializeComponent();
 			this.AutoScroll = true;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(213)))), ((int)(((byte)(230)))));
-			dataGridView1.BackgroundColor = Color.FromArgb(255, 255, 253); //背景色
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(230)))));
+            dataGridView1.BackgroundColor = Color.FromArgb(255, 255, 253); //背景色
 			dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(237, 243, 255); //雙行色
 
 			dataGridView1.RowsAdded += DataGridView1_RowsAdded;
@@ -129,6 +129,18 @@ namespace FormMain
         private void FormRecipeSearch_Load(object sender, EventArgs e)
         {
 			Display();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Operation" && e.RowIndex > 0) //只有對資料點擊修改時會發動
+            {
+                string recipePK = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+				FormRecipeEdit frm = new FormRecipeEdit(recipePK);
+                frm.Owner = this;
+                frm.Show();
+            }
         }
     }
 }

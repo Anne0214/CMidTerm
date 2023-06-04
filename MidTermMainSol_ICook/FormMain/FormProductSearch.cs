@@ -21,8 +21,8 @@ namespace FormMain
 		{
 			InitializeComponent();
 			this.AutoScroll = true;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(213)))), ((int)(((byte)(230)))));
-			dataGridView1.BackgroundColor = Color.FromArgb(255, 255, 253); //背景色
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(230)))));
+            dataGridView1.BackgroundColor = Color.FromArgb(255, 255, 253); //背景色
 			dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(237, 243, 255); //雙行色
 
 			dataGridView1.RowsAdded += DataGridView1_RowsAdded;

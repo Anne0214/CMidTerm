@@ -41,12 +41,6 @@
             this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.LabelRowCount = new System.Windows.Forms.Label();
-            this.buttonClear = new System.Windows.Forms.Button();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.toast = new FormItem.Toast();
             this.Checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.col_SPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +49,12 @@
             this.col_SalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Skus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Operation = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LabelRowCount = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.toast = new FormItem.Toast();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,6 +194,73 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1422, 406);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Checkbox
+            // 
+            this.Checkbox.HeaderText = "請選取";
+            this.Checkbox.MinimumWidth = 8;
+            this.Checkbox.Name = "Checkbox";
+            this.Checkbox.Width = 150;
+            // 
+            // col_SPU
+            // 
+            this.col_SPU.DataPropertyName = "RecipePk";
+            this.col_SPU.HeaderText = "食譜PK";
+            this.col_SPU.MinimumWidth = 8;
+            this.col_SPU.Name = "col_SPU";
+            this.col_SPU.Width = 150;
+            // 
+            // col_ProductName
+            // 
+            this.col_ProductName.DataPropertyName = "RecipeName";
+            this.col_ProductName.HeaderText = "標題";
+            this.col_ProductName.MinimumWidth = 8;
+            this.col_ProductName.Name = "col_ProductName";
+            this.col_ProductName.Width = 150;
+            // 
+            // col_OnShelf
+            // 
+            this.col_OnShelf.DataPropertyName = "AuthorPK";
+            this.col_OnShelf.HeaderText = "會員PK";
+            this.col_OnShelf.MinimumWidth = 8;
+            this.col_OnShelf.Name = "col_OnShelf";
+            this.col_OnShelf.Width = 150;
+            // 
+            // col_CategoryName
+            // 
+            this.col_CategoryName.DataPropertyName = "NickName";
+            this.col_CategoryName.HeaderText = "會員暱稱";
+            this.col_CategoryName.MinimumWidth = 8;
+            this.col_CategoryName.Name = "col_CategoryName";
+            this.col_CategoryName.Width = 150;
+            // 
+            // col_SalePrice
+            // 
+            this.col_SalePrice.DataPropertyName = "Category";
+            this.col_SalePrice.HeaderText = "精選分類";
+            this.col_SalePrice.MinimumWidth = 8;
+            this.col_SalePrice.Name = "col_SalePrice";
+            this.col_SalePrice.Width = 150;
+            // 
+            // col_Skus
+            // 
+            this.col_Skus.DataPropertyName = "PublishedTime";
+            this.col_Skus.HeaderText = "發表時間";
+            this.col_Skus.MinimumWidth = 8;
+            this.col_Skus.Name = "col_Skus";
+            this.col_Skus.Width = 150;
+            // 
+            // Operation
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "修改";
+            this.Operation.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Operation.HeaderText = "操作";
+            this.Operation.MinimumWidth = 8;
+            this.Operation.Name = "Operation";
+            this.Operation.Text = "修改";
+            this.Operation.Width = 150;
             // 
             // LabelRowCount
             // 
@@ -266,72 +333,6 @@
             this.toast.Size = new System.Drawing.Size(304, 82);
             this.toast.TabIndex = 12;
             this.toast.Visible = false;
-            // 
-            // Checkbox
-            // 
-            this.Checkbox.HeaderText = "請選取";
-            this.Checkbox.MinimumWidth = 8;
-            this.Checkbox.Name = "Checkbox";
-            this.Checkbox.Width = 150;
-            // 
-            // col_SPU
-            // 
-            this.col_SPU.DataPropertyName = "RecipePk";
-            this.col_SPU.HeaderText = "食譜PK";
-            this.col_SPU.MinimumWidth = 8;
-            this.col_SPU.Name = "col_SPU";
-            this.col_SPU.Width = 150;
-            // 
-            // col_ProductName
-            // 
-            this.col_ProductName.DataPropertyName = "RecipeName";
-            this.col_ProductName.HeaderText = "標題";
-            this.col_ProductName.MinimumWidth = 8;
-            this.col_ProductName.Name = "col_ProductName";
-            this.col_ProductName.Width = 150;
-            // 
-            // col_OnShelf
-            // 
-            this.col_OnShelf.DataPropertyName = "AuthorPK";
-            this.col_OnShelf.HeaderText = "會員PK";
-            this.col_OnShelf.MinimumWidth = 8;
-            this.col_OnShelf.Name = "col_OnShelf";
-            this.col_OnShelf.Width = 150;
-            // 
-            // col_CategoryName
-            // 
-            this.col_CategoryName.DataPropertyName = "NickName";
-            this.col_CategoryName.HeaderText = "會員暱稱";
-            this.col_CategoryName.MinimumWidth = 8;
-            this.col_CategoryName.Name = "col_CategoryName";
-            this.col_CategoryName.Width = 150;
-            // 
-            // col_SalePrice
-            // 
-            this.col_SalePrice.DataPropertyName = "Category";
-            this.col_SalePrice.HeaderText = "精選分類";
-            this.col_SalePrice.MinimumWidth = 8;
-            this.col_SalePrice.Name = "col_SalePrice";
-            this.col_SalePrice.Width = 150;
-            // 
-            // col_Skus
-            // 
-            this.col_Skus.DataPropertyName = "PublishedTime";
-            this.col_Skus.HeaderText = "發表時間";
-            this.col_Skus.MinimumWidth = 8;
-            this.col_Skus.Name = "col_Skus";
-            this.col_Skus.Width = 150;
-            // 
-            // Operation
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "修改";
-            this.Operation.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Operation.HeaderText = "操作";
-            this.Operation.MinimumWidth = 8;
-            this.Operation.Name = "Operation";
-            this.Operation.Text = "修改";
-            this.Operation.Width = 150;
             // 
             // FormRecipeSearch
             // 

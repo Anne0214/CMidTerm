@@ -39,6 +39,29 @@ namespace FormMain
             return savePath;
 
         }
+
+		public void ReadImage(PictureBox box, string filePath,string defaultImg)
+		{
+            if (filePath != null)
+            {
+                if (filePath.Contains("http"))
+                {
+                    box.ImageLocation = filePath;
+                }
+                else
+                {
+                    string currentDir = Environment.CurrentDirectory;
+                    string absolutePath = Path.Combine(currentDir, filePath);
+
+                    box.ImageLocation = absolutePath;
+
+                }
+            }
+            else
+            {
+                box.ImageLocation = defaultImg;
+            }
+        }
 	}
 	
 }
