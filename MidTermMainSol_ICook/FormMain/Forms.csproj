@@ -37,12 +37,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Buttons.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +63,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckInput.cs" />
+    <Compile Include="EF Models\AppDbContext.cs" />
+    <Compile Include="EF Models\CATEGORY_食譜分類_LEVEL_ONE.cs" />
+    <Compile Include="EF Models\CATEGORY_食譜分類_LEVEL_THREE.cs" />
+    <Compile Include="EF Models\CATEGORY_食譜分類_LEVEL_TWO.cs" />
+    <Compile Include="EF Models\FOOD_食材.cs" />
+    <Compile Include="EF Models\MEMBER_會員.cs" />
+    <Compile Include="EF Models\RECIPE_食譜.cs" />
+    <Compile Include="EF Models\STEP_步驟列表.cs" />
     <Compile Include="FormProductCreate.cs">
       <SubType>Form</SubType>
     </Compile>
