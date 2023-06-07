@@ -1,0 +1,22 @@
+.footer-all{
+    height:500px;
+    background:#1C8314;
+    font-size:18px;
+    color:#fff;
+    padding:50px;
+}
+.footer-head{
+    font-weight:700;
+}
+
+.footer-item li{
+    margin-top:20px;
+}
+#icons{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+}
+#icons i{
+    margin:5px;
+}
