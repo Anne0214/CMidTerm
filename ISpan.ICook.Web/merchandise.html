@@ -22,6 +22,9 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/028aebd974.js" crossorigin="anonymous"></script>
 
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 </head>
 
 <body>
@@ -77,121 +80,189 @@
     <!-- ##### Merchandise Intro Start ##### -->
     <div style="width:80%;margin:auto;">
         <div class="row">
-        <div class="col-6">
-        <!-- 這邊會塞圖片 -->
-        </div>
-        <div class="col-6">
-            <span style="font-weight:700;font-size:20px;">【TATUNG 大同】10人份電鍋 TAC-10L-DRU / TAC-10L-DIU / TAC-10L-DGU</span>
-            <p style="color:#515151;font-size:16px;">★10人份電鍋<br>
-                ★鍋蓋、內鍋、內鍋蓋、蒸盤均為SUS 304 不鏽鋼<br>
-                ★加熱均勻, 自動保溫<br>
-                ★雙重被覆電源線，雙重安全保護<br>
-                ★煮飯/粥、蒸、滷、燉多用途<br>
-            </p>
-            <hr> <!--價格 -->
-            <span style="display:block;color:darkgray;font-size:16px;"><del>原價 $ 3,390</del></span>
-            <span style="display:block;color:red;font-size:26px;font-weight:700">$ 3,090</span>
-            <hr>
-            <div class="div_in_product_intro"> <!--規格 -->
-                <div style="display:inline;font-weight:700;font-size:16px;margin-right:10px;">規格</div>
-                <div class="standard">
-                    <input type="radio" value="TAC-10L-DRU" id="standard-0" name="standard">
-                    <label for="standard-0">TAC-10L-DRU</label>
-                    <input type="radio" value="TAC-10L-DIU" id="standard-1" name="standard">
-                    <label for="standard-1">TAC-10L-DIU</label>
-                    <input type="radio" value="TAC-10L-DGU" id="standard-2" name="standard">
-                    <label for="standard-2">TAC-10L-DGU</label>
+            <div class="col-6">
+                <div class="slickslider">
+                    <div class="slider-nav">
+                        <div><img src="img\merchandise\a.jpg" alt=""></div>
+                        <div><img src="img\merchandise\b.jpg" alt=""></div>
+                        <div><img src="img\merchandise\c.jpg" alt=""></div>
+                        <div><img src="img\merchandise\d.jpg" alt=""></div>
+                    </div>
+                    <div class="slider-for">
+                        <div><img src="img\merchandise\a.jpg" alt=""></div>
+                        <div><img src="img\merchandise\b.jpg" alt=""></div>
+                        <div><img src="img\merchandise\c.jpg" alt=""></div>
+                        <div><img src="img\merchandise\d.jpg" alt=""></div>
+                    </div>
                 </div>
             </div>
-            <div class="div_in_product_intro"> <!--數量 -->
-                <div style="display:inline;font-weight:700;font-size:16px;margin-right:10px;">數量</div>
-                <div class="number">
-                    <button class="number_btn">-</button>
-                    <input type="number" value="1" min="1" max="5" name="num">
-                    <button class="number_btn">+</button>
-                </div>  
+            <div class="col-6">
+                <span style="font-weight:700;font-size:20px;">【TATUNG 大同】10人份電鍋 TAC-10L-DRU / TAC-10L-DIU / TAC-10L-DGU</span>
+                <p style="color:#515151;font-size:16px;">★10人份電鍋<br> ★鍋蓋、內鍋、內鍋蓋、蒸盤均為SUS 304 不鏽鋼<br> ★加熱均勻, 自動保溫<br> ★雙重被覆電源線，雙重安全保護
+                    <br> ★煮飯/粥、蒸、滷、燉多用途
+                    <br>
+                </p>
+                <hr>
+                <!--價格 -->
+                <span style="display:block;color:darkgray;font-size:16px;"><del>原價 $ 3,390</del></span>
+                <span style="display:block;color:red;font-size:26px;font-weight:700">$ 3,090</span>
+                <hr>
+                <div class="div_in_product_intro">
+                    <!--規格 -->
+                    <div style="display:inline;font-weight:700;font-size:16px;margin-right:10px;">規格</div>
+                    <div class="standard">
+                        <input type="radio" value="TAC-10L-DRU" id="standard-0" name="standard">
+                        <label for="standard-0">TAC-10L-DRU</label>
+                        <input type="radio" value="TAC-10L-DIU" id="standard-1" name="standard">
+                        <label for="standard-1">TAC-10L-DIU</label>
+                        <input type="radio" value="TAC-10L-DGU" id="standard-2" name="standard">
+                        <label for="standard-2">TAC-10L-DGU</label>
+                    </div>
+                </div>
+                <div class="div_in_product_intro">
+                    <!--數量 -->
+                    <div style="display:inline;font-weight:700;font-size:16px;margin-right:10px;">數量</div>
+                    <div class="number">
+                        <button class="number_btn" id="minus_btn">-</button>
+                        <input type="number" value="1" min="1" max="5" name="num" id="num">
+                        <button class="number_btn" id="add_btn">+</button>
+                    </div>
+                </div>
+                <div class="div_in_product_intro">
+                    <!--第一組按鈕 -->
+                    <button class="second_btn" style="background-color:#1C8314;border:none;color:#fff;">加入購物車</button>
+                    <button class="second_btn" style="background-color:#fff;position:absolute;right:0;border:3px solid #1C8314;color:#1C8314;">收藏</button>
+                </div>
+                <div class="div_in_product_intro">
+                    <!--第二組按鈕-->
+                    <button class="purchase_btn">立即購買</button>
+                </div>
+                <hr>
+                <span style="font-size:16px;color:#515151;">付款方式: ATM/信用卡/LinePay</span>
             </div>
-            <div class="div_in_product_intro"><!--第一組按鈕 -->
-                <button class="second_btn" style="background-color:#1C8314;border:none;color:#fff;">加入購物車</button>
-                <button class="second_btn" style="background-color:#fff;position:absolute;right:0;border:3px solid #1C8314;color:#1C8314;">收藏</button>
-            </div>
-            <div class="div_in_product_intro"><!--第二組按鈕-->
-                <button class="purchase_btn">立即購買</button>
-            </div>
-            <hr>
-            <span style="font-size:16px;color:#515151;">付款方式: ATM/信用卡/LinePay</span>
-        </div>
         </div>
     </div>
- <!-- ##### Merchandise Intro end ##### -->
+    <!-- ##### Merchandise Intro end ##### -->
 
-<!-- ##### Merchandise tab intro Start ##### -->
+    <!-- ##### Merchandise tab intro Start ##### -->
     <div style="width:80%;margin:auto;">
-        <div class="row" style="margin-top:80px;">  <!-- 以下開始商品介紹-->
-            <div class="col-12 tab_btns"> <!-- tab按鈕們-->
-                <div class="tab_btn">商品介紹</div>
-                <div class="tab_btn">商品規格</div>
-                <div class="tab_btn">運送說明</div>
-                <div class="tab_btn">售後服務</div>
-                <div class="tab_btn">退換貨說明</div>
+        <div class="row" style="margin-top:80px;">
+            <!-- 以下開始商品介紹-->
+            <div class="col-12 tab_btns" id="tab-btns">
+                <!-- tab按鈕們-->
+                <a href="#tab1" class="tab_btn tab_btn_active" style="font-size:20px;">商品介紹</a>
+                <a href="#tab2" class="tab_btn" style="font-size:20px;">商品規格</a>
+                <a href="#tab3" class="tab_btn" style="font-size:20px;">運送說明</a>
+                <a href="#tab4" class="tab_btn" style="font-size:20px;">售後服務</a>
+                <a href="#tab5" class="tab_btn" style="font-size:20px;">退換貨說明</a>
+
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-            <!-- tab內容-->
+            <div class="col-12" id="tab-inner">
+                <!-- tab內容-->
+                <div class="form-content" id="tab1">
+                    <img src="img\merchandise\01.jpg" alt="商品說明">
+                    <img src="img\merchandise\02.jpg" alt="商品說明">
+                </div>
+                <div class="form-content" id="tab2">
+                    <p style="font-size:16px;color:#000;">★額定輸入：110V<br>★最大消耗功率：700W<br>★保溫功率：40W<br>★10人份電鍋<br>★最大煮飯量：1.8 公升 (生米)<br>★產品尺寸：約 H265 x W348 x D295 (mm)<br>★淨重：約 2.8kg</p>
+                </div>
+                <div class="form-content" id="tab3">
+                    <span class="form-content-header">送貨天數</span>
+                    <p class="form-content-p">
+                        會員可在『訂單查詢』配送狀態中查看商品運送狀態。 現貨商品，付款後3-7個工作天送達。
+                        <br> 預購商品，因作業流程關係，並無法指定送達日期及時間，請依商品頁標示實際時間及方式。
+                        <br> 若因天候、交通、其他不可抗的因素，可能會延遲送達時間。
+                        <br> 因各項商品所屬供應商不同，您的訂單可能由多個供應商出貨，因此等候及到貨的時間可能不同，導致分次收到訂購商品，請您見諒。
+                        <br>
+                    </p>
+                    <span class="form-content-header">地點範圍</span>
+                    <p class="form-content-p">
+                        Ucook購物中心的服務運送範圍為台灣本島，其他地區客戶建議您使用台灣本島親友地址收件。
+                    </p>
+                    <span class="form-content-header">運費說明</span>
+                    <p class="form-content-p">
+                        您在UCook購物中心所購買的商品，不需額外運費，運費完全由UCook購物中心吸收。
+                    </p>
+                    <span class="form-content-header">超商取貨付款</span>
+                    <p class="form-content-p">
+                        當商品狀態顯示為出貨後，預計2個工作天內會到達指定超商，請留意是否有收到簡訊或郵件通知，並請在貨到超商日起7個工作天內到門市取貨付款。
+                    </p>
+                </div>
+                <div class="form-content" id="tab4">
+                    <img src="img\merchandise\03.jpg" alt="售後服務說明">
+                </div>
+                <div class="form-content" id="tab5">
+                    <span class="form-content-header">下列情況除商品本身瑕疵外，無法承諾會員辦理退貨：</span>
+                    <p class="form-content-p">
+                        商品退貨的運費由UCook購物中心負擔。<br> 依照消費者保護法的規定，享有商品貨到日起7天猶豫期的權益。【但猶豫期並非試用期，所以，您所退回的商品必須是全新的狀態、而且完整包裝。】請注意保持商品本體、配件、贈品、保證書、原廠包裝及所有附隨文件或資料的完整性，切勿缺漏任何配件或毀損原廠外盒。若有遺失或汙損，將會視情況酌收相關費用。
+                        <br> 若您要辦理退貨，請先透過系統填寫退訂單，我們將於接獲申請之次日起1~2個工作天內檢視您的退貨要求，檢視完畢後將以E-mail回覆通知您，並將委託本公司指定之宅配公司，在5個工作天內透過電話與您連絡前往取回退貨商品。請您保持電話暢通，並備妥原商品及所有包裝及附件，以便於交付予本公司指定之宅配公司取回（宅配公司僅負責收件，退貨商品仍由特約廠商進行驗收），宅配公司取件後會提供簽收單據給您，請注意留存。退貨商品需由原廠確認無誤後，方可進行退款作業。詳細各類商品退換貨限制說明。
+                        <br> 您在UCook購物中心購買的商品，我們將提供退貨、原廠相關售後服務，但僅限於台灣地區。
+                        <br>
+                    </p>
+                    <span class="form-content-header">退換貨說明</span>
+                    <p class="form-content-p">
+                        商品經過拆封後，將會影響您的退貨權益。<br> 視聽影音商品及其他屬智慧財產權類商品 (如CD、VCD、DVD) 經過拆封後，將會影響您的退貨權益。<br> 食品經過拆封、食用、保存不良產生變質，將會影響您的退貨權益。
+                        <br> 個人貼身衣物及其他個人衛生用品經過拆封或試穿後將會影響您的退貨權益。
+                        <br> 自行車落地後，將會影響您的退貨權益。
+                        <br> 其他特殊商品說明，請依商品頁上顯示標註內容為主。
+                        <br>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-<!-- ##### Merchandise tab intro End ##### -->
+    <!-- ##### Merchandise tab intro End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
- <footer class="footer-all">
-    <div style="width:80%;display:flex;flex-wrap:nowrap;justify-content:space-between;margin:auto;">
-        <div>
-            <img style="display:block;" src="img/core-img/LOGO_Green.png" alt="Logo">
-            <div id="icons">
-                <i class="fa-brands fa-line"></i>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-solid fa-envelope"></i>
+    <footer class="footer-all">
+        <div style="width:80%;display:flex;flex-wrap:nowrap;justify-content:space-between;margin:auto;">
+            <div>
+                <img style="display:block;" src="img/core-img/LOGO_Green.png" alt="Logo">
+                <div id="icons">
+                    <i class="fa-brands fa-line"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </div>
+            <div>
+                <span class="footer-head">關於Ucook</span>
+                <ul class="footer-item">
+                    <li>公司資訊</li>
+                    <li>徵才訊息</li>
+                    <li>廣告合作</li>
+                    <li>商品上架</li>
+                    <li>隱私權與條款</li>
+                </ul>
+            </div>
+            <div>
+                <span class="footer-head">會員服務</span>
+                <ul class="footer-item">
+                    <li>個人頁面</li>
+                    <li>商品訂單</li>
+                    <li>帳號設定</li>
+                    <li>忘記密碼</li>
+                </ul>
+            </div>
+            <div>
+                <span class="footer-head">精選食譜</span>
+                <ul class="footer-item">
+                    <li>家常菜色</li>
+                    <li>素食/蔬食</li>
+                    <li>中式點心</li>
+                    <li>家常食材</li>
+            </div>
+            <div>
+                <span class="footer-head">客服與問題</span>
+                <ul class="footer-item">
+                    <li>建議與問題</li>
+                    <li>粉絲專頁:XXXX</li>
             </div>
         </div>
-        <div>
-            <span class="footer-head">關於Ucook</span>
-            <ul class="footer-item">
-                <li>公司資訊</li>
-                <li>徵才訊息</li>
-                <li>廣告合作</li>
-                <li>商品上架</li>
-                <li>隱私權與條款</li>
-            </ul>
-        </div>
-        <div>
-            <span class="footer-head">會員服務</span>
-            <ul class="footer-item">
-                <li>個人頁面</li>
-                <li>商品訂單</li>
-                <li>帳號設定</li>
-                <li>忘記密碼</li>
-            </ul>
-        </div>
-        <div>
-            <span class="footer-head">精選食譜</span>
-            <ul class="footer-item">
-                <li>家常菜色</li>
-                <li>素食/蔬食</li>
-                <li>中式點心</li>
-                <li>家常食材</li>
-        </div>
-        <div>
-            <span class="footer-head">客服與問題</span>
-            <ul class="footer-item">
-                <li>建議與問題</li>
-                <li>粉絲專頁:XXXX</li>
-        </div>
-    </div>
-    <p style="text-align:center;margin-top:30px;color:#fff;font-size:16px;">Copyright©2023 UCook Inc.</p>
- </footer>
+        <p style="text-align:center;margin-top:30px;color:#fff;font-size:16px;">Copyright©2023 UCook Inc.</p>
+    </footer>
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
@@ -203,6 +274,31 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!-- 自製js -->
+    <script src="js/merchandise.js"></script>
+    <!-- slick -->
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav'
+        });
+
+        $('.slider-nav').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: false,
+            centerMode: true,
+            focusOnSelect: true,
+            vertical: true,
+        });
+    </script>
 </body>
 
 </html>
